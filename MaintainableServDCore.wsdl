@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
 		<xs:schema elementFormDefault="qualified" targetNamespace="http://omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
 			<xs:element name="Search">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
 						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -55,40 +56,22 @@
 					<xs:element minOccurs="0" name="CheckDate" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CheckTime" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CurrentLocalSystemTime" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="DaysOfWeek" type="tns:DaysOfWeek"/>
+					<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
 					<xs:element minOccurs="0" name="IncludeUnknown" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="Availability" nillable="true" type="tns:Availability"/>
-			<xs:simpleType name="DaysOfWeek">
-				<xs:list>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Monday"/>
-							<xs:enumeration value="Tuesday"/>
-							<xs:enumeration value="Wednesday"/>
-							<xs:enumeration value="Thursday"/>
-							<xs:enumeration value="Friday"/>
-							<xs:enumeration value="Saturday"/>
-							<xs:enumeration value="Sunday"/>
-							<xs:enumeration value="Weekdays">
-								<xs:annotation>
-									<xs:appinfo>
-										<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
-									</xs:appinfo>
-								</xs:annotation>
-							</xs:enumeration>
-							<xs:enumeration value="Weekend">
-								<xs:annotation>
-									<xs:appinfo>
-										<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">96</EnumerationValue>
-									</xs:appinfo>
-								</xs:annotation>
-							</xs:enumeration>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:list>
-			</xs:simpleType>
+			<xs:complexType name="DaysOfWeek">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Friday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Monday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Saturday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Sunday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Thursday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Tuesday" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Wednesday" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
 			<xs:element name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
 			<xs:complexType name="ArrayOfOrganizationSearchParameters">
 				<xs:sequence>
@@ -122,6 +105,9 @@
 			<xs:complexType name="HasAttribute">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="IncludeExpired" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="IncludeNotValid" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="IncludePending" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -321,6 +307,7 @@
 					<xs:enumeration value="Complete"/>
 					<xs:enumeration value="Partial"/>
 					<xs:enumeration value="CompleteAndRequiresModeration"/>
+					<xs:enumeration value="CompleteAndModerationRejected"/>
 					<xs:enumeration value="Deleted">
 						<xs:annotation>
 							<xs:appinfo>
@@ -328,10 +315,24 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="DoNotUpdate">
+					<xs:enumeration value="DeletedAndRequiresModeration">
 						<xs:annotation>
 							<xs:appinfo>
 								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DeletedAndModerationRejected">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DoNotUpdate">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:enumeration>
@@ -468,6 +469,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -483,6 +485,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -498,6 +501,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -513,6 +517,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -523,37 +528,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="GetReferenceListDetails">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="ReferenceListTypes" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="GetReferenceListDetailsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="GetReferenceListDetailsResult" nillable="true" type="tns:ArrayOfReferenceListDetail"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:complexType name="ArrayOfReferenceListDetail">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ReferenceListDetail" nillable="true" type="tns:ReferenceListDetail"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfReferenceListDetail" nillable="true" type="tns:ArrayOfReferenceListDetail"/>
-			<xs:complexType name="ReferenceListDetail">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="URL" nillable="true" type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ReferenceListDetail" nillable="true" type="tns:ReferenceListDetail"/>
 			<xs:element name="RetrieveOrganizationDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
@@ -782,7 +760,7 @@
 							<xs:element minOccurs="0" name="AvailabileEndTime" nillable="true" type="xs:dateTime"/>
 							<xs:element minOccurs="0" name="AvailabileStartTime" nillable="true" type="xs:dateTime"/>
 							<xs:element minOccurs="0" name="AvailableId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="DaysOfWeek" type="tns:DaysOfWeek"/>
+							<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1084,7 +1062,7 @@
 			<xs:element name="RetrieveSiteDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
@@ -1102,7 +1080,7 @@
 			<xs:element name="RetrieveServiceSiteDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
@@ -1119,7 +1097,7 @@
 			<xs:element name="RetrieveProviderDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q8:ArrayOfstring" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
@@ -1142,9 +1120,9 @@
 			<xs:element name="RetrievePublicKeys">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q10:ArrayOfstring" xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q11:ArrayOfstring" xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q8:ArrayOfstring" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q10:ArrayOfstring" xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -1152,7 +1130,7 @@
 			<xs:element name="RetrievePublicKeysResponse">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrievePublicKeysResult" nillable="true" type="q12:ArrayOfstring" xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="RetrievePublicKeysResult" nillable="true" type="q11:ArrayOfstring" xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1525,6 +1503,7 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:ServiceSiteProvider"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1628,6 +1607,21 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="RejectRecords">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfRecordIndex"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RejectRecordsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RejectRecordsResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="DeleteRecords">
 				<xs:complexType>
 					<xs:sequence>
@@ -1651,6 +1645,9 @@
 			<xs:element name="ArrayOfDeleteRecordResult" nillable="true" type="tns:ArrayOfDeleteRecordResult"/>
 			<xs:complexType name="DeleteRecordResult">
 				<xs:sequence>
+					<xs:element minOccurs="0" name="AdvancedErrorDescription" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
 					<xs:element minOccurs="0" name="Result" type="tns:RecordUpdateResultStatus"/>
@@ -1737,12 +1734,6 @@
 	</wsdl:message>
 	<wsdl:message name="Search_MoreProviders_OutputMessage">
 		<wsdl:part name="parameters" element="tns:MoreProvidersResponse"/>
-	</wsdl:message>
-	<wsdl:message name="Search_GetReferenceListDetails_InputMessage">
-		<wsdl:part name="parameters" element="tns:GetReferenceListDetails"/>
-	</wsdl:message>
-	<wsdl:message name="Search_GetReferenceListDetails_OutputMessage">
-		<wsdl:part name="parameters" element="tns:GetReferenceListDetailsResponse"/>
 	</wsdl:message>
 	<wsdl:message name="RetrieveDetails_RetrieveOrganizationDetails_InputMessage">
 		<wsdl:part name="parameters" element="tns:RetrieveOrganizationDetails"/>
@@ -1858,6 +1849,12 @@
 	<wsdl:message name="Maintenance_ApproveRecords_OutputMessage">
 		<wsdl:part name="parameters" element="tns:ApproveRecordsResponse"/>
 	</wsdl:message>
+	<wsdl:message name="Maintenance_RejectRecords_InputMessage">
+		<wsdl:part name="parameters" element="tns:RejectRecords"/>
+	</wsdl:message>
+	<wsdl:message name="Maintenance_RejectRecords_OutputMessage">
+		<wsdl:part name="parameters" element="tns:RejectRecordsResponse"/>
+	</wsdl:message>
 	<wsdl:message name="Maintenance_DeleteRecords_InputMessage">
 		<wsdl:part name="parameters" element="tns:DeleteRecords"/>
 	</wsdl:message>
@@ -1884,10 +1881,6 @@
 		<wsdl:operation name="MoreProviders">
 			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
 			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
-		</wsdl:operation>
-		<wsdl:operation name="GetReferenceListDetails">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/GetReferenceListDetails" message="tns:Search_GetReferenceListDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/GetReferenceListDetailsResponse" message="tns:Search_GetReferenceListDetails_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="RetrieveDetails">
@@ -1969,6 +1962,10 @@
 			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
 			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
 		</wsdl:operation>
+		<wsdl:operation name="RejectRecords">
+			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
+		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
 			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
 			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
@@ -2014,15 +2011,6 @@
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
 			<soap:operation soapAction="http://omg.net/Health/ServD/Search/MoreProviders" style="document"/>
-			<wsdl:input>
-				<soap:body use="literal"/>
-			</wsdl:input>
-			<wsdl:output>
-				<soap:body use="literal"/>
-			</wsdl:output>
-		</wsdl:operation>
-		<wsdl:operation name="GetReferenceListDetails">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/GetReferenceListDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2200,6 +2188,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
 			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ApproveRecords" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RejectRecords">
+			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/RejectRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
