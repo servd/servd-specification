@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="ServDVerificationService" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="ServDVerifier" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
 		<xs:schema elementFormDefault="qualified" targetNamespace="http://omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 			<xs:element name="VerifyOrganization">
 				<xs:complexType>
 					<xs:sequence>
@@ -24,37 +23,39 @@
 			</xs:complexType>
 			<xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress"/>
 			<xs:complexType name="Address">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordPrivacyIndicator" type="tns:PrivacyIndicator"/>
-					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
-					<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
-				</xs:sequence>
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
 			</xs:complexType>
 			<xs:element name="Address" nillable="true" type="tns:Address"/>
-			<xs:simpleType name="PrivacyIndicator">
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="Public"/>
-					<xs:enumeration value="SecureAccessOnly"/>
-					<xs:enumeration value="SecureAccessForOwnerOnly"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="PrivacyIndicator" nillable="true" type="tns:PrivacyIndicator"/>
+			<xs:complexType name="ModeratedRecord">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
+					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
 			<xs:simpleType name="RecordStatus">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Complete"/>
 					<xs:enumeration value="Partial"/>
 					<xs:enumeration value="CompleteAndRequiresModeration"/>
+					<xs:enumeration value="CompleteAndModerationRejected"/>
 					<xs:enumeration value="Deleted">
 						<xs:annotation>
 							<xs:appinfo>
@@ -62,10 +63,24 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="DoNotUpdate">
+					<xs:enumeration value="DeletedAndRequiresModeration">
 						<xs:annotation>
 							<xs:appinfo>
 								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DeletedAndModerationRejected">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DoNotUpdate">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:enumeration>
@@ -79,20 +94,18 @@
 			</xs:complexType>
 			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
 			<xs:complexType name="ContactPoint">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
-					<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="Equipment" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="RecordPrivacyIndicator" type="tns:PrivacyIndicator"/>
-					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
-					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-				</xs:sequence>
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
+							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
 			</xs:complexType>
 			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
 			<xs:element name="VerifyOrganizationResponse">
@@ -104,6 +117,7 @@
 			</xs:element>
 			<xs:complexType name="AttributeVerificationResult">
 				<xs:sequence>
+					<xs:element minOccurs="0" name="AdditionalNotes" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress"/>
 					<xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="AttributeValue" nillable="true" type="xs:string"/>
@@ -111,17 +125,18 @@
 					<xs:element minOccurs="0" name="DigitalSignature" nillable="true" type="xs:base64Binary"/>
 					<xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:base64Binary"/>
-					<xs:element minOccurs="0" name="Status" type="tns:AttributeVerificationStatus"/>
+					<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="VerificationStatus" type="tns:AttributeVerificationStatus"/>
 					<xs:element minOccurs="0" name="VerificationString" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="AttributeVerificationResult" nillable="true" type="tns:AttributeVerificationResult"/>
 			<xs:simpleType name="AttributeVerificationStatus">
 				<xs:restriction base="xs:string">
+					<xs:enumeration value="NotApplicable"/>
 					<xs:enumeration value="NotVerifiable"/>
 					<xs:enumeration value="Pending"/>
 					<xs:enumeration value="Verified"/>
@@ -137,7 +152,7 @@
 						<xs:element minOccurs="0" name="AttributeValue" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="ProviderIdentifier" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="GivenNames" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="addresses" nillable="true" type="tns:ArrayOfAddress"/>
 						<xs:element minOccurs="0" name="contacts" nillable="true" type="tns:ArrayOfContactPoint"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
@@ -213,14 +228,6 @@
 			<xs:attribute name="Id" type="xs:ID"/>
 			<xs:attribute name="Ref" type="xs:IDREF"/>
 		</xs:schema>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-			<xs:complexType name="ArrayOfstring">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
-		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="VerifyDetails_VerifyOrganization_InputMessage">
 		<wsdl:part name="parameters" element="tns:VerifyOrganization"/>
@@ -284,9 +291,9 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:service name="ServDVerificationService">
+	<wsdl:service name="ServDVerifier">
 		<wsdl:port name="BasicHttpBinding_VerifyDetails" binding="tns:BasicHttpBinding_VerifyDetails">
-			<soap:address location="http://localhost:52792/ServDVerificationService.svc"/>
+			<soap:address location="http://localhost:52792/ServDVerifier.svc"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
