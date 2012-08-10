@@ -117,7 +117,7 @@
 			</xs:element>
 			<xs:complexType name="SearchInputParameters">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AdressSearchParameters"/>
+					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 					<xs:element minOccurs="0" name="Availability" nillable="true" type="tns:ArrayOfAvailability"/>
 					<xs:element minOccurs="0" name="OrganizationSearchParameters" nillable="true" type="tns:ArrayOfOrganizationSearchParameters"/>
 					<xs:element minOccurs="0" name="ProviderSearchParameters" nillable="true" type="tns:ArrayOfProviderSearchParameters"/>
@@ -133,7 +133,7 @@
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="SearchInputParameters" nillable="true" type="tns:SearchInputParameters"/>
-			<xs:complexType name="AdressSearchParameters">
+			<xs:complexType name="AddressSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
@@ -145,7 +145,7 @@
 					<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="AdressSearchParameters" nillable="true" type="tns:AdressSearchParameters"/>
+			<xs:element name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 			<xs:complexType name="ArrayOfAvailability">
 				<xs:sequence>
 					<xs:element minOccurs="0" maxOccurs="unbounded" name="Availability" nillable="true" type="tns:Availability"/>
@@ -227,6 +227,7 @@
 					<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SpecialInterests" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -249,15 +250,51 @@
 			<xs:complexType name="ServiceSiteSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfHasAttribute"/>
+					<xs:element minOccurs="0" name="FreeProvisionCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="IdentifierType" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="IdentifierValue" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="tns:ConditionalIndicator"/>
 					<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ServiceKeywords" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SpecialtyCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="TargetGroup" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="ServiceSiteSearchParameters" nillable="true" type="tns:ServiceSiteSearchParameters"/>
+			<xs:simpleType name="ConditionalIndicator">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NotDefined"/>
+					<xs:enumeration value="Yes">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="No">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Unknown">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Conditional">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="ConditionalIndicator" nillable="true" type="tns:ConditionalIndicator"/>
 			<xs:complexType name="ArrayOfSiteSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteSearchParameters" nillable="true" type="tns:SiteSearchParameters"/>
@@ -274,7 +311,7 @@
 			<xs:element name="SiteSearchParameters" nillable="true" type="tns:SiteSearchParameters"/>
 			<xs:complexType name="SearchControlParameters">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
 					<xs:element minOccurs="0" name="StringMatchCharaterCount" type="xs:int"/>
 					<xs:element minOccurs="0" name="StringMatchType" type="tns:StringMatchType"/>
@@ -320,20 +357,199 @@
 			<xs:complexType name="PagedSearchResults">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="CurrentPage" type="xs:int"/>
-					<xs:element minOccurs="0" name="Errors" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+					<xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResult"/>
 					<xs:element minOccurs="0" name="EstimatedTotalItems" type="xs:int"/>
 					<xs:element minOccurs="0" name="EstimatedTotalPages" type="xs:int"/>
-					<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Status" type="tns:SearchResultsStatus"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="PagedSearchResults" nillable="true" type="tns:PagedSearchResults"/>
+			<xs:complexType name="ArrayOfResult">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Result" nillable="true" type="tns:Result"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfResult" nillable="true" type="tns:ArrayOfResult"/>
+			<xs:complexType name="Result">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="AdvancedErrorDescription" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="Result" nillable="true" type="tns:Result"/>
+			<xs:simpleType name="RecordType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Organization">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="OrganizationAffiliation">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="OrganizationName">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Provider">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ProviderLanguage">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ProviderName">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ServiceSite">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ServiceSiteProvider">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">21</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ServiceSiteSetting">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">22</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ServiceSiteTargetGroup">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Site">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="SiteGeographicalCoordinate">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Address">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Attribute">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">41</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Available">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">42</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ContactPoint">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">43</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="NotAvailable">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">44</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Keyword">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">45</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Identifier">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">46</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="CatchmentArea">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">47</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Specialty">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">48</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ReferralMethod">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">49</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="CoverageArea">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">50</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="RecordType" nillable="true" type="tns:RecordType"/>
 			<xs:simpleType name="SearchResultsStatus">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Success"/>
 					<xs:enumeration value="Error"/>
 					<xs:enumeration value="Partial"/>
-					<xs:enumeration value="InvalidCookie"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="SearchResultsStatus" nillable="true" type="tns:SearchResultsStatus"/>
@@ -463,13 +679,15 @@
 						<xs:sequence>
 							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="CulturalEthnicityCode" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
-							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 							<xs:element minOccurs="0" name="PrimarySiteId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteIds" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 							<xs:element minOccurs="0" name="SiteIds" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
@@ -517,7 +735,11 @@
 						<xs:sequence>
 							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
 							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteAvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteAvailabilityTimeBlock" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
@@ -544,10 +766,9 @@
 				<xs:complexContent mixed="false">
 					<xs:extension base="tns:SearchItem">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="GISGranularity" type="xs:int"/>
 							<xs:element minOccurs="0" name="GISLatitude" type="xs:decimal"/>
@@ -557,9 +778,11 @@
 							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceAvailabilityTimeBlock" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="SiteAvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteAvailabilityTimeBlock" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
@@ -569,7 +792,8 @@
 			<xs:element name="MoreOrganizations">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -585,7 +809,8 @@
 			<xs:element name="MoreSites">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -601,7 +826,8 @@
 			<xs:element name="MoreServiceSites">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -617,7 +843,8 @@
 			<xs:element name="MoreProviders">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
 						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>

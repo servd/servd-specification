@@ -2,8 +2,8 @@
 <wsdl:definitions name="MaintainableServDCore" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
 		<xs:schema elementFormDefault="qualified" targetNamespace="http://omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 			<xs:element name="Search">
 				<xs:complexType>
 					<xs:sequence>
@@ -15,7 +15,7 @@
 			</xs:element>
 			<xs:complexType name="SearchInputParameters">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AdressSearchParameters"/>
+					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 					<xs:element minOccurs="0" name="Availability" nillable="true" type="tns:ArrayOfAvailability"/>
 					<xs:element minOccurs="0" name="OrganizationSearchParameters" nillable="true" type="tns:ArrayOfOrganizationSearchParameters"/>
 					<xs:element minOccurs="0" name="ProviderSearchParameters" nillable="true" type="tns:ArrayOfProviderSearchParameters"/>
@@ -31,7 +31,7 @@
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="SearchInputParameters" nillable="true" type="tns:SearchInputParameters"/>
-			<xs:complexType name="AdressSearchParameters">
+			<xs:complexType name="AddressSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
@@ -43,7 +43,7 @@
 					<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="AdressSearchParameters" nillable="true" type="tns:AdressSearchParameters"/>
+			<xs:element name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 			<xs:complexType name="ArrayOfAvailability">
 				<xs:sequence>
 					<xs:element minOccurs="0" maxOccurs="unbounded" name="Availability" nillable="true" type="tns:Availability"/>
@@ -125,6 +125,7 @@
 					<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SpecialInterests" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -147,15 +148,51 @@
 			<xs:complexType name="ServiceSiteSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfHasAttribute"/>
+					<xs:element minOccurs="0" name="FreeProvisionCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="IdentifierType" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="IdentifierValue" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="tns:ConditionalIndicator"/>
 					<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ServiceKeywords" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SpecialtyCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="TargetGroup" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="ServiceSiteSearchParameters" nillable="true" type="tns:ServiceSiteSearchParameters"/>
+			<xs:simpleType name="ConditionalIndicator">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NotDefined"/>
+					<xs:enumeration value="Yes">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="No">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Unknown">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="Conditional">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="ConditionalIndicator" nillable="true" type="tns:ConditionalIndicator"/>
 			<xs:complexType name="ArrayOfSiteSearchParameters">
 				<xs:sequence>
 					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteSearchParameters" nillable="true" type="tns:SiteSearchParameters"/>
@@ -172,7 +209,7 @@
 			<xs:element name="SiteSearchParameters" nillable="true" type="tns:SiteSearchParameters"/>
 			<xs:complexType name="SearchControlParameters">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
 					<xs:element minOccurs="0" name="StringMatchCharaterCount" type="xs:int"/>
 					<xs:element minOccurs="0" name="StringMatchType" type="tns:StringMatchType"/>
@@ -218,955 +255,28 @@
 			<xs:complexType name="PagedSearchResults">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="CurrentPage" type="xs:int"/>
-					<xs:element minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+					<xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResult"/>
 					<xs:element minOccurs="0" name="EstimatedTotalItems" type="xs:int"/>
 					<xs:element minOccurs="0" name="EstimatedTotalPages" type="xs:int"/>
-					<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Status" type="tns:SearchResultsStatus"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="PagedSearchResults" nillable="true" type="tns:PagedSearchResults"/>
-			<xs:simpleType name="SearchResultsStatus">
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="Success"/>
-					<xs:enumeration value="Error"/>
-					<xs:enumeration value="Partial"/>
-					<xs:enumeration value="InvalidCookie"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="SearchResultsStatus" nillable="true" type="tns:SearchResultsStatus"/>
-			<xs:complexType name="ArrayOfOrganizationSearchItem">
+			<xs:complexType name="ArrayOfResult">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationSearchItem" nillable="true" type="tns:OrganizationSearchItem"/>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Result" nillable="true" type="tns:Result"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="ArrayOfOrganizationSearchItem" nillable="true" type="tns:ArrayOfOrganizationSearchItem"/>
-			<xs:complexType name="OrganizationSearchItem">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:SearchItem">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="WebAddress" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="OrganizationSearchItem" nillable="true" type="tns:OrganizationSearchItem"/>
-			<xs:complexType name="SearchItem">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="Heading" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="SubHeading" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="SearchItem" nillable="true" type="tns:SearchItem"/>
-			<xs:complexType name="ArrayOfContactPoint">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
-			<xs:complexType name="ContactPoint">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
-							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-			<xs:complexType name="ModeratedRecord">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
-					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
-			<xs:simpleType name="RecordStatus">
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="Complete"/>
-					<xs:enumeration value="Partial"/>
-					<xs:enumeration value="CompleteAndRequiresModeration"/>
-					<xs:enumeration value="CompleteAndModerationRejected"/>
-					<xs:enumeration value="Deleted">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndRequiresModeration">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndModerationRejected">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DoNotUpdate">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
-			<xs:complexType name="ProviderList">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:PagedSearchResults">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfProviderSearchItem"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ProviderList" nillable="true" type="tns:ProviderList"/>
-			<xs:complexType name="ArrayOfProviderSearchItem">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderSearchItem" nillable="true" type="tns:ProviderSearchItem"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfProviderSearchItem" nillable="true" type="tns:ArrayOfProviderSearchItem"/>
-			<xs:complexType name="ProviderSearchItem">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:SearchItem">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
-							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-							<xs:element minOccurs="0" name="PrimarySiteId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteIds" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ProviderSearchItem" nillable="true" type="tns:ProviderSearchItem"/>
-			<xs:complexType name="ArrayOfProviderLanguage">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderLanguage" nillable="true" type="tns:ProviderLanguage"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfProviderLanguage" nillable="true" type="tns:ArrayOfProviderLanguage"/>
-			<xs:complexType name="ProviderLanguage">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ProviderLanguageId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ProviderLanguage" nillable="true" type="tns:ProviderLanguage"/>
-			<xs:complexType name="ServiceSiteList">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:PagedSearchResults">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfServiceSiteSearchItem"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSiteList" nillable="true" type="tns:ServiceSiteList"/>
-			<xs:complexType name="ArrayOfServiceSiteSearchItem">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteSearchItem" nillable="true" type="tns:ServiceSiteSearchItem"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceSiteSearchItem" nillable="true" type="tns:ArrayOfServiceSiteSearchItem"/>
-			<xs:complexType name="ServiceSiteSearchItem">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:SearchItem">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSiteSearchItem" nillable="true" type="tns:ServiceSiteSearchItem"/>
-			<xs:complexType name="SiteList">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:PagedSearchResults">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfSiteSearchItem"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="SiteList" nillable="true" type="tns:SiteList"/>
-			<xs:complexType name="ArrayOfSiteSearchItem">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteSearchItem" nillable="true" type="tns:SiteSearchItem"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfSiteSearchItem" nillable="true" type="tns:ArrayOfSiteSearchItem"/>
-			<xs:complexType name="SiteSearchItem">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:SearchItem">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GISGranularity" type="xs:int"/>
-							<xs:element minOccurs="0" name="GISLatitude" type="xs:decimal"/>
-							<xs:element minOccurs="0" name="GISLongitude" type="xs:decimal"/>
-							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="LocationDescription" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceAvailabilityTimeBlock" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteAvailabilityExceptions" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="SiteSearchItem" nillable="true" type="tns:SiteSearchItem"/>
-			<xs:element name="MoreOrganizations">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreOrganizationsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="MoreOrganizationsResult" nillable="true" type="tns:OrganizationList"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreSites">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreSitesResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="MoreSitesResult" nillable="true" type="tns:SiteList"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreServiceSites">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreServiceSitesResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="MoreServiceSitesResult" nillable="true" type="tns:ServiceSiteList"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreProviders">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SearchCookie" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="MoreProvidersResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="MoreProvidersResult" nillable="true" type="tns:ProviderList"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveOrganizationDetails">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="IncludeSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveOrganizationDetailsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrieveOrganizationDetailsResult" nillable="true" type="tns:ArrayOfOrganization"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:complexType name="ArrayOfOrganization">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" nillable="true" type="tns:Organization"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfOrganization" nillable="true" type="tns:ArrayOfOrganization"/>
-			<xs:complexType name="Organization">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Affiliations" nillable="true" type="tns:ArrayOfOrganizationAffiliation"/>
-							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
-							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="IncorporationDate" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OtherAddresses" nillable="true" type="tns:ArrayOfAddress"/>
-							<xs:element minOccurs="0" name="OtherNames" nillable="true" type="tns:ArrayOfOrganizationName"/>
-							<xs:element minOccurs="0" name="PreferredName" nillable="true" type="tns:OrganizationName"/>
-							<xs:element minOccurs="0" name="PrimaryAddress" nillable="true" type="tns:Address"/>
-							<xs:element minOccurs="0" name="Sites" nillable="true" type="tns:ArrayOfSite"/>
-							<xs:element minOccurs="0" name="Specialties" nillable="true" type="tns:ArrayOfSpecialty"/>
-							<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Organization" nillable="true" type="tns:Organization"/>
-			<xs:complexType name="ArrayOfOrganizationAffiliation">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationAffiliation" nillable="true" type="tns:OrganizationAffiliation"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfOrganizationAffiliation" nillable="true" type="tns:ArrayOfOrganizationAffiliation"/>
-			<xs:complexType name="OrganizationAffiliation">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AffiliationType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Note" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OrganizationAffiliationId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="OrganizationAffiliation" nillable="true" type="tns:OrganizationAffiliation"/>
-			<xs:complexType name="ArrayOfAttribute">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="tns:Attribute"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfAttribute" nillable="true" type="tns:ArrayOfAttribute"/>
-			<xs:complexType name="Attribute">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AdditionalVerifierNotes" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AttributeId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AttributeValue" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="DigitalSignature" nillable="true" type="xs:base64Binary"/>
-							<xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="LastVerificationDate" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="VerificationStatus" type="tns:AttributeVerificationStatus"/>
-							<xs:element minOccurs="0" name="VerificationString" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Attribute" nillable="true" type="tns:Attribute"/>
-			<xs:simpleType name="AttributeVerificationStatus">
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="NotApplicable"/>
-					<xs:enumeration value="NotVerifiable"/>
-					<xs:enumeration value="Pending"/>
-					<xs:enumeration value="Verified"/>
-					<xs:enumeration value="Expired"/>
-					<xs:enumeration value="NotValid"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="AttributeVerificationStatus" nillable="true" type="tns:AttributeVerificationStatus"/>
-			<xs:complexType name="ArrayOfCatchmentArea">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="CatchmentArea" nillable="true" type="tns:CatchmentArea"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfCatchmentArea" nillable="true" type="tns:ArrayOfCatchmentArea"/>
-			<xs:complexType name="CatchmentArea">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="CatchmentAreaId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="CatchmentArea" nillable="true" type="tns:CatchmentArea"/>
-			<xs:complexType name="ArrayOfIdentifier">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Identifier" nillable="true" type="tns:Identifier"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfIdentifier" nillable="true" type="tns:ArrayOfIdentifier"/>
-			<xs:complexType name="Identifier">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="IdentifierControllingAuthority" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="IdentifierId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="IdentifierIssuingAuthority" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="IdentifierType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Identifier" nillable="true" type="tns:Identifier"/>
-			<xs:complexType name="ArrayOfAddress">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress"/>
-			<xs:complexType name="Address">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Address" nillable="true" type="tns:Address"/>
-			<xs:complexType name="ArrayOfOrganizationName">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationName" nillable="true" type="tns:OrganizationName"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfOrganizationName" nillable="true" type="tns:ArrayOfOrganizationName"/>
-			<xs:complexType name="OrganizationName">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="IsLegalIndicator" type="xs:boolean"/>
-							<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NamePurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NameType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OrganizationNameId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="OrganizationName" nillable="true" type="tns:OrganizationName"/>
-			<xs:complexType name="ArrayOfSite">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Site" nillable="true" type="tns:Site"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfSite" nillable="true" type="tns:ArrayOfSite"/>
-			<xs:complexType name="Site">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="AvailabilityExceptions" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AvailableTimes" nillable="true" type="tns:ArrayOfAvailable"/>
-							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ELSURL" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GeographicalCoordinates" nillable="true" type="tns:ArrayOfSiteGeographicalCoordinate"/>
-							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="LocationDescription" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="MapReferenceSource" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NotAvailableTimes" nillable="true" type="tns:ArrayOfNotAvailable"/>
-							<xs:element minOccurs="0" name="OtherAddresses" nillable="true" type="tns:ArrayOfAddress"/>
-							<xs:element minOccurs="0" name="PrimaryAddress" nillable="true" type="tns:Address"/>
-							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSites" nillable="true" type="tns:ArrayOfServiceSite"/>
-							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Site" nillable="true" type="tns:Site"/>
-			<xs:complexType name="ArrayOfAvailable">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Available" nillable="true" type="tns:Available"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfAvailable" nillable="true" type="tns:ArrayOfAvailable"/>
-			<xs:complexType name="Available">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AllDay" type="xs:boolean"/>
-							<xs:element minOccurs="0" name="AvailabileEndTime" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="AvailabileStartTime" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="AvailableId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Available" nillable="true" type="tns:Available"/>
-			<xs:complexType name="ArrayOfSiteGeographicalCoordinate">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteGeographicalCoordinate" nillable="true" type="tns:SiteGeographicalCoordinate"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfSiteGeographicalCoordinate" nillable="true" type="tns:ArrayOfSiteGeographicalCoordinate"/>
-			<xs:complexType name="SiteGeographicalCoordinate">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Altitude" type="xs:decimal"/>
-							<xs:element minOccurs="0" name="CatchmentShape" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Granularity" type="xs:int"/>
-							<xs:element minOccurs="0" name="IsSearchableCoordinate" type="xs:boolean"/>
-							<xs:element minOccurs="0" name="Latitude" type="xs:decimal"/>
-							<xs:element minOccurs="0" name="Longitude" type="xs:decimal"/>
-							<xs:element minOccurs="0" name="ShapeFormat" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteGeographicalCoordinateId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SiteShape" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SpatialReferenceID" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="SiteGeographicalCoordinate" nillable="true" type="tns:SiteGeographicalCoordinate"/>
-			<xs:complexType name="ArrayOfNotAvailable">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="NotAvailable" nillable="true" type="tns:NotAvailable"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfNotAvailable" nillable="true" type="tns:ArrayOfNotAvailable"/>
-			<xs:complexType name="NotAvailable">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NotAvailableBetweenEndDate" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="NotAvailableBetweenStartDate" nillable="true" type="xs:dateTime"/>
-							<xs:element minOccurs="0" name="NotAvailableId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="NotAvailable" nillable="true" type="tns:NotAvailable"/>
-			<xs:complexType name="ArrayOfServiceSite">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSite" nillable="true" type="tns:ServiceSite"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceSite" nillable="true" type="tns:ArrayOfServiceSite"/>
-			<xs:complexType name="ServiceSite">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="AdditionalServiceTypes" nillable="true" type="tns:ArrayOfServiceType"/>
-							<xs:element minOccurs="0" name="AppointmentRequired" type="tns:ConditionalIndicator"/>
-							<xs:element minOccurs="0" name="AvailabilityExceptions" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="AvailableTimes" nillable="true" type="tns:ArrayOfAvailable"/>
-							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
-							<xs:element minOccurs="0" name="Characteristics" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="CoverageAreas" nillable="true" type="tns:ArrayOfCoverageArea"/>
-							<xs:element minOccurs="0" name="ELSURL" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Eligibility" type="tns:ConditionalIndicator"/>
-							<xs:element minOccurs="0" name="EligibilityNote" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ExtraDetails" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="FreeProvisionCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
-							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NotAvailableTimes" nillable="true" type="tns:ArrayOfNotAvailable"/>
-							<xs:element minOccurs="0" name="PrimaryServiceType" nillable="true" type="tns:ServiceType"/>
-							<xs:element minOccurs="0" name="ProgramNames" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Providers" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
-							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ReferralMethods" nillable="true" type="tns:ArrayOfReferralMethod"/>
-							<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ArrayOfServiceSiteSetting"/>
-							<xs:element minOccurs="0" name="Specialties" nillable="true" type="tns:ArrayOfSpecialty"/>
-							<xs:element minOccurs="0" name="TargetGroups" nillable="true" type="tns:ArrayOfServiceSiteTargetGroup"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSite" nillable="true" type="tns:ServiceSite"/>
-			<xs:complexType name="ArrayOfServiceType">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceType" nillable="true" type="tns:ServiceType"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceType" nillable="true" type="tns:ArrayOfServiceType"/>
-			<xs:complexType name="ServiceType">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceType" nillable="true" type="tns:ServiceType"/>
-			<xs:simpleType name="ConditionalIndicator">
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="NotDefined"/>
-					<xs:enumeration value="Yes">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="No">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Unknown">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Conditional">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="ConditionalIndicator" nillable="true" type="tns:ConditionalIndicator"/>
-			<xs:complexType name="ArrayOfCoverageArea">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="CoverageArea" nillable="true" type="tns:CoverageArea"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfCoverageArea" nillable="true" type="tns:ArrayOfCoverageArea"/>
-			<xs:complexType name="CoverageArea">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="CoverageAreaId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="CoverageArea" nillable="true" type="tns:CoverageArea"/>
-			<xs:complexType name="ArrayOfServiceSiteProvider">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteProvider" nillable="true" type="tns:ServiceSiteProvider"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceSiteProvider" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
-			<xs:complexType name="ServiceSiteProvider">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Provider" nillable="true" type="tns:Provider"/>
-							<xs:element minOccurs="0" name="ProviderNumber" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteProviderId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSiteProvider" nillable="true" type="tns:ServiceSiteProvider"/>
-			<xs:complexType name="Provider">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress"/>
-							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
-							<xs:element minOccurs="0" name="Credentials" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="CulturalEthnicityCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
-							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
-							<xs:element minOccurs="0" name="LicenseOrRegistration" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="OtherNames" nillable="true" type="tns:ArrayOfProviderName"/>
-							<xs:element minOccurs="0" name="PreferredName" nillable="true" type="tns:ProviderName"/>
-							<xs:element minOccurs="0" name="PrimarySite" nillable="true" type="tns:ServiceSite"/>
-							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Qualifications" nillable="true" type="tns:ArrayOfAttribute"/>
-							<xs:element minOccurs="0" name="ReferralMethods" nillable="true" type="tns:ArrayOfReferralMethod"/>
-							<xs:element minOccurs="0" name="ServiceSites" nillable="true" type="tns:ArrayOfServiceSite"/>
-							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Provider" nillable="true" type="tns:Provider"/>
-			<xs:complexType name="ArrayOfProviderName">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderName" nillable="true" type="tns:ProviderName"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfProviderName" nillable="true" type="tns:ArrayOfProviderName"/>
-			<xs:complexType name="ProviderName">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="IsLegalIndicator" type="xs:boolean"/>
-							<xs:element minOccurs="0" name="NamePurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="NameType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ProviderNameId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ProviderName" nillable="true" type="tns:ProviderName"/>
-			<xs:complexType name="ArrayOfReferralMethod">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ReferralMethod" nillable="true" type="tns:ReferralMethod"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfReferralMethod" nillable="true" type="tns:ArrayOfReferralMethod"/>
-			<xs:complexType name="ReferralMethod">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ReferralMethodId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ReferralMethod" nillable="true" type="tns:ReferralMethod"/>
-			<xs:complexType name="ArrayOfServiceSiteSetting">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteSetting" nillable="true" type="tns:ServiceSiteSetting"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceSiteSetting" nillable="true" type="tns:ArrayOfServiceSiteSetting"/>
-			<xs:complexType name="ServiceSiteSetting">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteSettingId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSiteSetting" nillable="true" type="tns:ServiceSiteSetting"/>
-			<xs:complexType name="ArrayOfSpecialty">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Specialty" nillable="true" type="tns:Specialty"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfSpecialty" nillable="true" type="tns:ArrayOfSpecialty"/>
-			<xs:complexType name="Specialty">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="SpecialtyId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="Specialty" nillable="true" type="tns:Specialty"/>
-			<xs:complexType name="ArrayOfServiceSiteTargetGroup">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteTargetGroup" nillable="true" type="tns:ServiceSiteTargetGroup"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfServiceSiteTargetGroup" nillable="true" type="tns:ArrayOfServiceSiteTargetGroup"/>
-			<xs:complexType name="ServiceSiteTargetGroup">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteTargetGroupId" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ServiceSiteTargetGroup" nillable="true" type="tns:ServiceSiteTargetGroup"/>
-			<xs:element name="RetrieveSiteDetails">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveSiteDetailsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrieveSiteDetailsResult" nillable="true" type="tns:ArrayOfSite"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveServiceSiteDetails">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveServiceSiteDetailsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrieveServiceSiteDetailsResult" nillable="true" type="tns:ArrayOfServiceSite"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveProviderDetails">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="GetUnModeratedDataWhereAvailable" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrieveProviderDetailsResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrieveProviderDetailsResult" nillable="true" type="tns:ArrayOfProvider"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:complexType name="ArrayOfProvider">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="Provider" nillable="true" type="tns:Provider"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfProvider" nillable="true" type="tns:ArrayOfProvider"/>
-			<xs:element name="RetrievePublicKeys">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q8:ArrayOfstring" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q10:ArrayOfstring" xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RetrievePublicKeysResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="RetrievePublicKeysResult" nillable="true" type="q11:ArrayOfstring" xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="OrganizationAdd">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="details" nillable="true" type="tns:Organization"/>
-						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="OrganizationAddResponse">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element minOccurs="0" name="OrganizationAddResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:complexType name="ArrayOfUpdateRecordResult">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="UpdateRecordResult" nillable="true" type="tns:UpdateRecordResult"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfUpdateRecordResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
-			<xs:complexType name="UpdateRecordResult">
+			<xs:element name="ArrayOfResult" nillable="true" type="tns:ArrayOfResult"/>
+			<xs:complexType name="Result">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AdvancedErrorDescription" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
-					<xs:element minOccurs="0" name="Result" type="tns:RecordUpdateResultStatus"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="UpdateRecordResult" nillable="true" type="tns:UpdateRecordResult"/>
+			<xs:element name="Result" nillable="true" type="tns:Result"/>
 			<xs:simpleType name="RecordType">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Organization">
@@ -1333,6 +443,945 @@
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordType" nillable="true" type="tns:RecordType"/>
+			<xs:simpleType name="SearchResultsStatus">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Success"/>
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Partial"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="SearchResultsStatus" nillable="true" type="tns:SearchResultsStatus"/>
+			<xs:complexType name="ArrayOfOrganizationSearchItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationSearchItem" nillable="true" type="tns:OrganizationSearchItem"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfOrganizationSearchItem" nillable="true" type="tns:ArrayOfOrganizationSearchItem"/>
+			<xs:complexType name="OrganizationSearchItem">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:SearchItem">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="WebAddress" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="OrganizationSearchItem" nillable="true" type="tns:OrganizationSearchItem"/>
+			<xs:complexType name="SearchItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Heading" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SubHeading" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="SearchItem" nillable="true" type="tns:SearchItem"/>
+			<xs:complexType name="ArrayOfContactPoint">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
+			<xs:complexType name="ContactPoint">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
+							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+			<xs:complexType name="ModeratedRecord">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
+					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
+			<xs:simpleType name="RecordStatus">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Complete"/>
+					<xs:enumeration value="Partial"/>
+					<xs:enumeration value="CompleteAndRequiresModeration"/>
+					<xs:enumeration value="CompleteAndModerationRejected"/>
+					<xs:enumeration value="Deleted">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DeletedAndRequiresModeration">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DeletedAndModerationRejected">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="DoNotUpdate">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
+			<xs:complexType name="ProviderList">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:PagedSearchResults">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfProviderSearchItem"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ProviderList" nillable="true" type="tns:ProviderList"/>
+			<xs:complexType name="ArrayOfProviderSearchItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderSearchItem" nillable="true" type="tns:ProviderSearchItem"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfProviderSearchItem" nillable="true" type="tns:ArrayOfProviderSearchItem"/>
+			<xs:complexType name="ProviderSearchItem">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:SearchItem">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="CulturalEthnicityCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
+							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="PrimarySiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteIds" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="SiteIds" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ProviderSearchItem" nillable="true" type="tns:ProviderSearchItem"/>
+			<xs:complexType name="ArrayOfProviderLanguage">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderLanguage" nillable="true" type="tns:ProviderLanguage"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfProviderLanguage" nillable="true" type="tns:ArrayOfProviderLanguage"/>
+			<xs:complexType name="ProviderLanguage">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ProviderLanguageId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ProviderLanguage" nillable="true" type="tns:ProviderLanguage"/>
+			<xs:complexType name="ServiceSiteList">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:PagedSearchResults">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfServiceSiteSearchItem"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSiteList" nillable="true" type="tns:ServiceSiteList"/>
+			<xs:complexType name="ArrayOfServiceSiteSearchItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteSearchItem" nillable="true" type="tns:ServiceSiteSearchItem"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceSiteSearchItem" nillable="true" type="tns:ArrayOfServiceSiteSearchItem"/>
+			<xs:complexType name="ServiceSiteSearchItem">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:SearchItem">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteAvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteAvailabilityTimeBlock" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSiteSearchItem" nillable="true" type="tns:ServiceSiteSearchItem"/>
+			<xs:complexType name="SiteList">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:PagedSearchResults">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfSiteSearchItem"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="SiteList" nillable="true" type="tns:SiteList"/>
+			<xs:complexType name="ArrayOfSiteSearchItem">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteSearchItem" nillable="true" type="tns:SiteSearchItem"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfSiteSearchItem" nillable="true" type="tns:ArrayOfSiteSearchItem"/>
+			<xs:complexType name="SiteSearchItem">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:SearchItem">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GISGranularity" type="xs:int"/>
+							<xs:element minOccurs="0" name="GISLatitude" type="xs:decimal"/>
+							<xs:element minOccurs="0" name="GISLongitude" type="xs:decimal"/>
+							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LocationDescription" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteAvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteAvailabilityTimeBlock" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="SiteSearchItem" nillable="true" type="tns:SiteSearchItem"/>
+			<xs:element name="MoreOrganizations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
+						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreOrganizationsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="MoreOrganizationsResult" nillable="true" type="tns:OrganizationList"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreSites">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
+						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreSitesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="MoreSitesResult" nillable="true" type="tns:SiteList"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreServiceSites">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
+						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreServiceSitesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="MoreServiceSitesResult" nillable="true" type="tns:ServiceSiteList"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreProviders">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SearchParameters" nillable="true" type="tns:SearchInputParameters"/>
+						<xs:element minOccurs="0" name="ControlParameters" nillable="true" type="tns:SearchControlParameters"/>
+						<xs:element minOccurs="0" name="RequestPage" type="xs:int"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MoreProvidersResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="MoreProvidersResult" nillable="true" type="tns:ProviderList"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveOrganizationDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="IncludeSiteData" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveOrganizationDetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrieveOrganizationDetailsResult" nillable="true" type="tns:ArrayOfOrganization"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="ArrayOfOrganization">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" nillable="true" type="tns:Organization"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfOrganization" nillable="true" type="tns:ArrayOfOrganization"/>
+			<xs:complexType name="Organization">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Affiliations" nillable="true" type="tns:ArrayOfOrganizationAffiliation"/>
+							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
+							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IncorporationDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OtherAddresses" nillable="true" type="tns:ArrayOfAddress"/>
+							<xs:element minOccurs="0" name="OtherNames" nillable="true" type="tns:ArrayOfOrganizationName"/>
+							<xs:element minOccurs="0" name="PreferredName" nillable="true" type="tns:OrganizationName"/>
+							<xs:element minOccurs="0" name="PrimaryAddress" nillable="true" type="tns:Address"/>
+							<xs:element minOccurs="0" name="Sites" nillable="true" type="tns:ArrayOfSite"/>
+							<xs:element minOccurs="0" name="Specialties" nillable="true" type="tns:ArrayOfSpecialty"/>
+							<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Organization" nillable="true" type="tns:Organization"/>
+			<xs:complexType name="ArrayOfOrganizationAffiliation">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationAffiliation" nillable="true" type="tns:OrganizationAffiliation"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfOrganizationAffiliation" nillable="true" type="tns:ArrayOfOrganizationAffiliation"/>
+			<xs:complexType name="OrganizationAffiliation">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AffiliationType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Note" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganizationAffiliationId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="OrganizationAffiliation" nillable="true" type="tns:OrganizationAffiliation"/>
+			<xs:complexType name="ArrayOfAttribute">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="tns:Attribute"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfAttribute" nillable="true" type="tns:ArrayOfAttribute"/>
+			<xs:complexType name="Attribute">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AdditionalVerifierNotes" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AttributeId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AttributeValue" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="DigitalSignature" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="LastVerificationDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="VerificationStatus" type="tns:AttributeVerificationStatus"/>
+							<xs:element minOccurs="0" name="VerificationString" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Attribute" nillable="true" type="tns:Attribute"/>
+			<xs:simpleType name="AttributeVerificationStatus">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NotApplicable"/>
+					<xs:enumeration value="NotVerifiable"/>
+					<xs:enumeration value="Pending"/>
+					<xs:enumeration value="Verified"/>
+					<xs:enumeration value="Expired"/>
+					<xs:enumeration value="NotValid"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="AttributeVerificationStatus" nillable="true" type="tns:AttributeVerificationStatus"/>
+			<xs:complexType name="ArrayOfCatchmentArea">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="CatchmentArea" nillable="true" type="tns:CatchmentArea"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfCatchmentArea" nillable="true" type="tns:ArrayOfCatchmentArea"/>
+			<xs:complexType name="CatchmentArea">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="CatchmentAreaId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="CatchmentArea" nillable="true" type="tns:CatchmentArea"/>
+			<xs:complexType name="ArrayOfIdentifier">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Identifier" nillable="true" type="tns:Identifier"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfIdentifier" nillable="true" type="tns:ArrayOfIdentifier"/>
+			<xs:complexType name="Identifier">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="IdentifierControllingAuthority" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IdentifierId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IdentifierIssuingAuthority" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IdentifierType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Identifier" nillable="true" type="tns:Identifier"/>
+			<xs:complexType name="ArrayOfAddress">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress"/>
+			<xs:complexType name="Address">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AddressPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Jurisdiction" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PostalIdentificationCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Region" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Address" nillable="true" type="tns:Address"/>
+			<xs:complexType name="ArrayOfOrganizationName">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationName" nillable="true" type="tns:OrganizationName"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfOrganizationName" nillable="true" type="tns:ArrayOfOrganizationName"/>
+			<xs:complexType name="OrganizationName">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="IsLegalIndicator" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NamePurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NameType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganizationNameId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="OrganizationName" nillable="true" type="tns:OrganizationName"/>
+			<xs:complexType name="ArrayOfSite">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Site" nillable="true" type="tns:Site"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfSite" nillable="true" type="tns:ArrayOfSite"/>
+			<xs:complexType name="Site">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="AvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AvailableTimes" nillable="true" type="tns:ArrayOfAvailable"/>
+							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ELSURL" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GeographicalCoordinates" nillable="true" type="tns:ArrayOfSiteGeographicalCoordinate"/>
+							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
+							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LocationDescription" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="MapReferenceSource" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NotAvailableTimes" nillable="true" type="tns:ArrayOfNotAvailable"/>
+							<xs:element minOccurs="0" name="OtherAddresses" nillable="true" type="tns:ArrayOfAddress"/>
+							<xs:element minOccurs="0" name="PrimaryAddress" nillable="true" type="tns:Address"/>
+							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSites" nillable="true" type="tns:ArrayOfServiceSite"/>
+							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Site" nillable="true" type="tns:Site"/>
+			<xs:complexType name="ArrayOfAvailable">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Available" nillable="true" type="tns:Available"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfAvailable" nillable="true" type="tns:ArrayOfAvailable"/>
+			<xs:complexType name="Available">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AllDay" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="AvailabileEndTime" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="AvailabileStartTime" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="AvailableId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Available" nillable="true" type="tns:Available"/>
+			<xs:complexType name="ArrayOfSiteGeographicalCoordinate">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="SiteGeographicalCoordinate" nillable="true" type="tns:SiteGeographicalCoordinate"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfSiteGeographicalCoordinate" nillable="true" type="tns:ArrayOfSiteGeographicalCoordinate"/>
+			<xs:complexType name="SiteGeographicalCoordinate">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Altitude" type="xs:decimal"/>
+							<xs:element minOccurs="0" name="CatchmentShape" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Granularity" type="xs:int"/>
+							<xs:element minOccurs="0" name="IsSearchableCoordinate" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="Latitude" type="xs:decimal"/>
+							<xs:element minOccurs="0" name="Longitude" type="xs:decimal"/>
+							<xs:element minOccurs="0" name="ShapeFormat" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteGeographicalCoordinateId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SiteShape" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SpatialReferenceID" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="SiteGeographicalCoordinate" nillable="true" type="tns:SiteGeographicalCoordinate"/>
+			<xs:complexType name="ArrayOfNotAvailable">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="NotAvailable" nillable="true" type="tns:NotAvailable"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfNotAvailable" nillable="true" type="tns:ArrayOfNotAvailable"/>
+			<xs:complexType name="NotAvailable">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NotAvailableBetweenEndDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="NotAvailableBetweenStartDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="NotAvailableId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="NotAvailable" nillable="true" type="tns:NotAvailable"/>
+			<xs:complexType name="ArrayOfServiceSite">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSite" nillable="true" type="tns:ServiceSite"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceSite" nillable="true" type="tns:ArrayOfServiceSite"/>
+			<xs:complexType name="ServiceSite">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AdditionalServiceTypes" nillable="true" type="tns:ArrayOfServiceType"/>
+							<xs:element minOccurs="0" name="AppointmentRequired" type="tns:ConditionalIndicator"/>
+							<xs:element minOccurs="0" name="AvailabilityExceptions" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="AvailableTimes" nillable="true" type="tns:ArrayOfAvailable"/>
+							<xs:element minOccurs="0" name="CatchmentAreas" nillable="true" type="tns:ArrayOfCatchmentArea"/>
+							<xs:element minOccurs="0" name="Characteristics" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="CoverageAreas" nillable="true" type="tns:ArrayOfCoverageArea"/>
+							<xs:element minOccurs="0" name="ELSURL" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Eligibility" type="tns:ConditionalIndicator"/>
+							<xs:element minOccurs="0" name="EligibilityNote" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ExtraDetails" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="FreeProvisionCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
+							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NotAvailableTimes" nillable="true" type="tns:ArrayOfNotAvailable"/>
+							<xs:element minOccurs="0" name="PrimaryServiceType" nillable="true" type="tns:ServiceType"/>
+							<xs:element minOccurs="0" name="ProgramNames" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Providers" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
+							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ReferralMethods" nillable="true" type="tns:ArrayOfReferralMethod"/>
+							<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ArrayOfServiceSiteSetting"/>
+							<xs:element minOccurs="0" name="Specialties" nillable="true" type="tns:ArrayOfSpecialty"/>
+							<xs:element minOccurs="0" name="TargetGroups" nillable="true" type="tns:ArrayOfServiceSiteTargetGroup"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSite" nillable="true" type="tns:ServiceSite"/>
+			<xs:complexType name="ArrayOfServiceType">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceType" nillable="true" type="tns:ServiceType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceType" nillable="true" type="tns:ArrayOfServiceType"/>
+			<xs:complexType name="ServiceType">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceType" nillable="true" type="tns:ServiceType"/>
+			<xs:complexType name="ArrayOfCoverageArea">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="CoverageArea" nillable="true" type="tns:CoverageArea"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfCoverageArea" nillable="true" type="tns:ArrayOfCoverageArea"/>
+			<xs:complexType name="CoverageArea">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="CoverageAreaId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="CoverageArea" nillable="true" type="tns:CoverageArea"/>
+			<xs:complexType name="ArrayOfServiceSiteProvider">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteProvider" nillable="true" type="tns:ServiceSiteProvider"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceSiteProvider" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
+			<xs:complexType name="ServiceSiteProvider">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
+							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteProviderId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSiteProvider" nillable="true" type="tns:ServiceSiteProvider"/>
+			<xs:complexType name="ArrayOfReferralMethod">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ReferralMethod" nillable="true" type="tns:ReferralMethod"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfReferralMethod" nillable="true" type="tns:ArrayOfReferralMethod"/>
+			<xs:complexType name="ReferralMethod">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ReferralMethodId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ReferralMethod" nillable="true" type="tns:ReferralMethod"/>
+			<xs:complexType name="ArrayOfServiceSiteSetting">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteSetting" nillable="true" type="tns:ServiceSiteSetting"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceSiteSetting" nillable="true" type="tns:ArrayOfServiceSiteSetting"/>
+			<xs:complexType name="ServiceSiteSetting">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteSettingId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSiteSetting" nillable="true" type="tns:ServiceSiteSetting"/>
+			<xs:complexType name="ArrayOfSpecialty">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Specialty" nillable="true" type="tns:Specialty"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfSpecialty" nillable="true" type="tns:ArrayOfSpecialty"/>
+			<xs:complexType name="Specialty">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganizationSpecialtyId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Specialty" nillable="true" type="tns:Specialty"/>
+			<xs:complexType name="ArrayOfServiceSiteTargetGroup">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceSiteTargetGroup" nillable="true" type="tns:ServiceSiteTargetGroup"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfServiceSiteTargetGroup" nillable="true" type="tns:ArrayOfServiceSiteTargetGroup"/>
+			<xs:complexType name="ServiceSiteTargetGroup">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ServiceSiteTargetGroupId" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ServiceSiteTargetGroup" nillable="true" type="tns:ServiceSiteTargetGroup"/>
+			<xs:element name="RetrieveSiteDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveSiteDetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrieveSiteDetailsResult" nillable="true" type="tns:ArrayOfSite"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveServiceSiteDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveServiceSiteDetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrieveServiceSiteDetailsResult" nillable="true" type="tns:ArrayOfServiceSite"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveProviderDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveProviderDetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrieveProviderDetailsResult" nillable="true" type="tns:ArrayOfProvider"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="ArrayOfProvider">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Provider" nillable="true" type="tns:Provider"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfProvider" nillable="true" type="tns:ArrayOfProvider"/>
+			<xs:complexType name="Provider">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress"/>
+							<xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPoints" nillable="true" type="tns:ArrayOfContactPoint"/>
+							<xs:element minOccurs="0" name="Credentials" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="CulturalEthnicityCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Identifiers" nillable="true" type="tns:ArrayOfIdentifier"/>
+							<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
+							<xs:element minOccurs="0" name="LicenseOrRegistration" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="OtherNames" nillable="true" type="tns:ArrayOfProviderName"/>
+							<xs:element minOccurs="0" name="PreferredName" nillable="true" type="tns:ProviderName"/>
+							<xs:element minOccurs="0" name="PrimarySite" nillable="true" type="tns:Site"/>
+							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Qualifications" nillable="true" type="tns:ArrayOfAttribute"/>
+							<xs:element minOccurs="0" name="ReferralMethods" nillable="true" type="tns:ArrayOfReferralMethod"/>
+							<xs:element minOccurs="0" name="ServiceSites" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
+							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Provider" nillable="true" type="tns:Provider"/>
+			<xs:complexType name="ArrayOfProviderName">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderName" nillable="true" type="tns:ProviderName"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfProviderName" nillable="true" type="tns:ArrayOfProviderName"/>
+			<xs:complexType name="ProviderName">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IsLegalIndicator" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="NamePurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NameType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ProviderNameId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ProviderName" nillable="true" type="tns:ProviderName"/>
+			<xs:element name="RetrievePublicKeys">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q8:ArrayOfstring" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q10:ArrayOfstring" xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrievePublicKeysResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrievePublicKeysResult" nillable="true" type="tns:ArrayOfPublicKey"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="ArrayOfPublicKey">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="PublicKey" nillable="true" type="tns:PublicKey"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfPublicKey" nillable="true" type="tns:ArrayOfPublicKey"/>
+			<xs:complexType name="PublicKey">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
+					<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="PublicKey" nillable="true" type="tns:PublicKey"/>
+			<xs:element name="OrganizationAdd">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="details" nillable="true" type="tns:Organization"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OrganizationAddResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="OrganizationAddResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="ArrayOfUpdateRecordResult">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="UpdateRecordResult" nillable="true" type="tns:UpdateRecordResult"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfUpdateRecordResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
+			<xs:complexType name="UpdateRecordResult">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:RecordResult">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Result" type="tns:RecordUpdateResultStatus"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="UpdateRecordResult" nillable="true" type="tns:UpdateRecordResult"/>
+			<xs:complexType name="RecordResult">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:Result">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="RecordResult" nillable="true" type="tns:RecordResult"/>
 			<xs:simpleType name="RecordUpdateResultStatus">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Success"/>
@@ -1558,17 +1607,17 @@
 			<xs:element name="GetRecordsRequiringApprovalResponse">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="GetRecordsRequiringApprovalResult" nillable="true" type="tns:ArrayOfRecordRequiringApprovalResult"/>
+						<xs:element minOccurs="0" name="GetRecordsRequiringApprovalResult" nillable="true" type="tns:ArrayOfRecordRequiringApproval"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:complexType name="ArrayOfRecordRequiringApprovalResult">
+			<xs:complexType name="ArrayOfRecordRequiringApproval">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="RecordRequiringApprovalResult" nillable="true" type="tns:RecordRequiringApprovalResult"/>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="RecordRequiringApproval" nillable="true" type="tns:RecordRequiringApproval"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="ArrayOfRecordRequiringApprovalResult" nillable="true" type="tns:ArrayOfRecordRequiringApprovalResult"/>
-			<xs:complexType name="RecordRequiringApprovalResult">
+			<xs:element name="ArrayOfRecordRequiringApproval" nillable="true" type="tns:ArrayOfRecordRequiringApproval"/>
+			<xs:complexType name="RecordRequiringApproval">
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
@@ -1578,7 +1627,7 @@
 					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="RecordRequiringApprovalResult" nillable="true" type="tns:RecordRequiringApprovalResult"/>
+			<xs:element name="RecordRequiringApproval" nillable="true" type="tns:RecordRequiringApproval"/>
 			<xs:element name="ApproveRecords">
 				<xs:complexType>
 					<xs:sequence>
@@ -1644,14 +1693,13 @@
 			</xs:complexType>
 			<xs:element name="ArrayOfDeleteRecordResult" nillable="true" type="tns:ArrayOfDeleteRecordResult"/>
 			<xs:complexType name="DeleteRecordResult">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="AdvancedErrorDescription" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
-					<xs:element minOccurs="0" name="Result" type="tns:RecordUpdateResultStatus"/>
-				</xs:sequence>
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:RecordResult">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="Result" type="tns:RecordUpdateResultStatus"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
 			</xs:complexType>
 			<xs:element name="DeleteRecordResult" nillable="true" type="tns:DeleteRecordResult"/>
 		</xs:schema>
