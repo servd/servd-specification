@@ -313,7 +313,6 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
-					<xs:element minOccurs="0" name="StringMatchCharaterCount" type="xs:int"/>
 					<xs:element minOccurs="0" name="StringMatchType" type="tns:StringMatchType"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -322,7 +321,6 @@
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Exact"/>
 					<xs:enumeration value="Contains"/>
-					<xs:enumeration value="FirstNchars"/>
 					<xs:enumeration value="StartsWith"/>
 					<xs:enumeration value="Fuzzy"/>
 				</xs:restriction>
