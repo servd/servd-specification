@@ -1176,7 +1176,7 @@
 					<xs:extension base="tns:ModeratedRecord">
 						<xs:sequence>
 							<xs:element minOccurs="0" name="Code" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="OrganizationSpecialtyId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SpecialtyId" nillable="true" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1272,7 +1272,7 @@
 							<xs:element minOccurs="0" name="LicenseOrRegistration" nillable="true" type="tns:ArrayOfAttribute"/>
 							<xs:element minOccurs="0" name="OtherNames" nillable="true" type="tns:ArrayOfProviderName"/>
 							<xs:element minOccurs="0" name="PreferredName" nillable="true" type="tns:ProviderName"/>
-							<xs:element minOccurs="0" name="PrimarySite" nillable="true" type="tns:Site"/>
+							<xs:element minOccurs="0" name="PrimarySiteId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Qualifications" nillable="true" type="tns:ArrayOfAttribute"/>
