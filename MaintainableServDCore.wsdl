@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schema.omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 			<xs:element name="Search">
@@ -446,6 +446,7 @@
 					<xs:enumeration value="Success"/>
 					<xs:enumeration value="Error"/>
 					<xs:enumeration value="Partial"/>
+					<xs:enumeration value="ErrorInadequateSearchParameters"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="SearchResultsStatus" nillable="true" type="tns:SearchResultsStatus"/>
@@ -1909,118 +1910,118 @@
 	</wsdl:message>
 	<wsdl:portType name="Search">
 		<wsdl:operation name="Search">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/Search" message="tns:Search_Search_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/Search" message="tns:Search_Search_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="RetrieveDetails">
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Maintenance">
 		<wsdl:operation name="OrganizationAdd">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="AddServiceSiteProvider">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/AddServiceSiteProvider" message="tns:Maintenance_AddServiceSiteProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/AddServiceSiteProviderResponse" message="tns:Maintenance_AddServiceSiteProvider_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/AddServiceSiteProvider" message="tns:Maintenance_AddServiceSiteProvider_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/AddServiceSiteProviderResponse" message="tns:Maintenance_AddServiceSiteProvider_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UpdateServiceSiteProvider">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/UpdateServiceSiteProvider" message="tns:Maintenance_UpdateServiceSiteProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/UpdateServiceSiteProviderResponse" message="tns:Maintenance_UpdateServiceSiteProvider_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UpdateServiceSiteProvider" message="tns:Maintenance_UpdateServiceSiteProvider_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UpdateServiceSiteProviderResponse" message="tns:Maintenance_UpdateServiceSiteProvider_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<wsdl:input wsaw:Action="http://omg.net/Health/ServD/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://omg.net/Health/ServD/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_Search" type="tns:Search">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Search">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/Search" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/Search" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2029,7 +2030,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/MoreOrganizations" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreOrganizations" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2038,7 +2039,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/MoreSites" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2047,7 +2048,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/MoreServiceSites" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreServiceSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2056,7 +2057,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Search/MoreProviders" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreProviders" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2068,7 +2069,7 @@
 	<wsdl:binding name="BasicHttpBinding_RetrieveDetails" type="tns:RetrieveDetails">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<soap:operation soapAction="http://omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2077,7 +2078,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<soap:operation soapAction="http://omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetails" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2086,7 +2087,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<soap:operation soapAction="http://omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2095,7 +2096,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<soap:operation soapAction="http://omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetails" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrieveProviderDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2104,7 +2105,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<soap:operation soapAction="http://omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeys" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/RetrieveDetails/RetrievePublicKeys" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2116,7 +2117,7 @@
 	<wsdl:binding name="BasicHttpBinding_Maintenance" type="tns:Maintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="OrganizationAdd">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/OrganizationAdd" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/OrganizationAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2125,7 +2126,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/OrganizationUpdate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/OrganizationUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2134,7 +2135,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/SiteAdd" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/SiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2143,7 +2144,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/SiteUpdate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/SiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2152,7 +2153,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ServiceSiteAdd" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2161,7 +2162,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ServiceSiteUpdate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/ServiceSiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2170,7 +2171,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ProviderAdd" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/ProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2179,7 +2180,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ProviderUpdate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/ProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2188,7 +2189,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="AddServiceSiteProvider">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/AddServiceSiteProvider" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/AddServiceSiteProvider" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2197,7 +2198,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UpdateServiceSiteProvider">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/UpdateServiceSiteProvider" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/UpdateServiceSiteProvider" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2206,7 +2207,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/UploadSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/UploadSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2215,7 +2216,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/UploadServiceSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2224,7 +2225,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/GetRecordsRequiringApproval" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/GetRecordsRequiringApproval" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2233,7 +2234,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/ApproveRecords" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/ApproveRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2242,7 +2243,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/RejectRecords" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/RejectRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2251,7 +2252,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<soap:operation soapAction="http://omg.net/Health/ServD/Maintenance/DeleteRecords" style="document"/>
+			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Maintenance/DeleteRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
