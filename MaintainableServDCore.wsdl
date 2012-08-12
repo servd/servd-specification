@@ -760,7 +760,6 @@
 						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1205,7 +1204,6 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
-						<xs:element minOccurs="0" name="IncludeProviderData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1533,8 +1531,6 @@
 			<xs:element name="AddServiceSiteProvider">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:ServiceSiteProvider"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
