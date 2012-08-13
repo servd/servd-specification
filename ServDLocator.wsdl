@@ -154,7 +154,7 @@
 			<xs:element name="ArrayOfAvailability" nillable="true" type="tns:ArrayOfAvailability"/>
 			<xs:complexType name="Availability">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="AvailabileAt" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="AvailableAt" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="CheckDate" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CheckTime" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CurrentLocalSystemTime" type="xs:dateTime"/>
