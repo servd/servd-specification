@@ -1625,11 +1625,20 @@
 					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LastChangeByUser" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LastChangeDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="Parent" nillable="true" type="tns:RecordIndex"/>
 					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
+					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="RecordRequiringApproval" nillable="true" type="tns:RecordRequiringApproval"/>
+			<xs:complexType name="RecordIndex">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="RecordIndex" nillable="true" type="tns:RecordIndex"/>
 			<xs:element name="ApproveRecords">
 				<xs:complexType>
 					<xs:sequence>
@@ -1644,13 +1653,6 @@
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="ArrayOfRecordIndex" nillable="true" type="tns:ArrayOfRecordIndex"/>
-			<xs:complexType name="RecordIndex">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="RecordIndex" nillable="true" type="tns:RecordIndex"/>
 			<xs:element name="ApproveRecordsResponse">
 				<xs:complexType>
 					<xs:sequence>
