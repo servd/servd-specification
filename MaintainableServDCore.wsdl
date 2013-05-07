@@ -17,6 +17,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 					<xs:element minOccurs="0" name="Availability" nillable="true" type="tns:ArrayOfAvailability"/>
+					<xs:element minOccurs="0" name="ModifiedAfterDate" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="OrganizationSearchParameters" nillable="true" type="tns:ArrayOfOrganizationSearchParameters"/>
 					<xs:element minOccurs="0" name="ProviderSearchParameters" nillable="true" type="tns:ArrayOfProviderSearchParameters"/>
 					<xs:element minOccurs="0" name="ProximitySearchParameters" nillable="true" type="tns:ProximitySearchParameters"/>
@@ -55,7 +56,6 @@
 					<xs:element minOccurs="0" name="AvailableAt" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="CheckDate" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CheckTime" type="xs:boolean"/>
-					<xs:element minOccurs="0" name="CurrentLocalSystemTime" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
 					<xs:element minOccurs="0" name="IncludeUnknown" type="xs:boolean"/>
 				</xs:sequence>
@@ -125,6 +125,7 @@
 					<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SpecialInterests" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string"/>
 				</xs:sequence>
@@ -153,6 +154,7 @@
 					<xs:element minOccurs="0" name="IdentifierValue" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="tns:ConditionalIndicator"/>
 					<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SpecialtyCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="TargetGroup" nillable="true" type="xs:string"/>
@@ -256,6 +258,7 @@
 					<xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResult"/>
 					<xs:element minOccurs="0" name="EstimatedTotalItems" type="xs:int"/>
 					<xs:element minOccurs="0" name="EstimatedTotalPages" type="xs:int"/>
+					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
 					<xs:element minOccurs="0" name="Status" type="tns:SearchResultsStatus"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -486,44 +489,14 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Heading" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
 					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SubHeading" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="SearchItem" nillable="true" type="tns:SearchItem"/>
-			<xs:complexType name="ArrayOfContactPoint">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
-			<xs:complexType name="ContactPoint">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
-							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-			<xs:complexType name="ModeratedRecord">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
-					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
 			<xs:simpleType name="RecordStatus">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Complete"/>
@@ -561,6 +534,38 @@
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
+			<xs:complexType name="ArrayOfContactPoint">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
+			<xs:complexType name="ContactPoint">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
+							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+			<xs:complexType name="ModeratedRecord">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
+					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
 			<xs:complexType name="ProviderList">
 				<xs:complexContent mixed="false">
 					<xs:extension base="tns:PagedSearchResults">
@@ -1381,6 +1386,7 @@
 						<xs:sequence>
 							<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1626,6 +1632,7 @@
 					<xs:element minOccurs="0" name="LastChangeByUser" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LastChangeDate" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="Parent" nillable="true" type="tns:RecordIndex"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
 					<xs:element minOccurs="0" name="RecordType" type="tns:RecordType"/>
 					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
