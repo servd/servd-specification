@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="ServDVerifier" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schema.omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="ServDVerifier" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20120901" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
 			<xs:element name="VerifyOrganization">
 				<xs:complexType>
@@ -249,22 +249,22 @@
 	</wsdl:message>
 	<wsdl:portType name="VerifyDetails">
 		<wsdl:operation name="VerifyOrganization">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyOrganization" message="tns:VerifyDetails_VerifyOrganization_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyOrganizationResponse" message="tns:VerifyDetails_VerifyOrganization_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganization" message="tns:VerifyDetails_VerifyOrganization_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganizationResponse" message="tns:VerifyDetails_VerifyOrganization_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="VerifyProvider">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyProvider" message="tns:VerifyDetails_VerifyProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyProviderResponse" message="tns:VerifyDetails_VerifyProvider_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProvider" message="tns:VerifyDetails_VerifyProvider_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProviderResponse" message="tns:VerifyDetails_VerifyProvider_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="VerifySite">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifySite" message="tns:VerifyDetails_VerifySite_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/VerifyDetails/VerifySiteResponse" message="tns:VerifyDetails_VerifySite_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySite" message="tns:VerifyDetails_VerifySite_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySiteResponse" message="tns:VerifyDetails_VerifySite_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_VerifyDetails" type="tns:VerifyDetails">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="VerifyOrganization">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyOrganization" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganization" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -273,7 +273,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="VerifyProvider">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/VerifyDetails/VerifyProvider" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProvider" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -282,7 +282,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="VerifySite">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/VerifyDetails/VerifySite" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySite" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
