@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="ServDLocator" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schema.omg.net/Health/ServD" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="ServDLocator" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20120901" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://schema.omg.net/Health/ServD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
 			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
 			<xs:element name="LocateSearchEndpointsForCoverageArea">
@@ -23,6 +23,7 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="ReferenceListTypes" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="InterfaceFormat" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -53,6 +54,7 @@
 					<xs:sequence>
 						<xs:element minOccurs="0" name="Address" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="CoverageAreaCodes" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="RemoveExistingEntries" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -119,6 +121,8 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 					<xs:element minOccurs="0" name="Availability" nillable="true" type="tns:ArrayOfAvailability"/>
+					<xs:element minOccurs="0" name="CoverageAreaCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ModifiedAfterDate" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="OrganizationSearchParameters" nillable="true" type="tns:ArrayOfOrganizationSearchParameters"/>
 					<xs:element minOccurs="0" name="ProviderSearchParameters" nillable="true" type="tns:ArrayOfProviderSearchParameters"/>
 					<xs:element minOccurs="0" name="ProximitySearchParameters" nillable="true" type="tns:ProximitySearchParameters"/>
@@ -157,7 +161,6 @@
 					<xs:element minOccurs="0" name="AvailableAt" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="CheckDate" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="CheckTime" type="xs:boolean"/>
-					<xs:element minOccurs="0" name="CurrentLocalSystemTime" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="DaysOfWeek" nillable="true" type="tns:DaysOfWeek"/>
 					<xs:element minOccurs="0" name="IncludeUnknown" type="xs:boolean"/>
 				</xs:sequence>
@@ -227,6 +230,7 @@
 					<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="LanguageSpokenCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SpecialInterests" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string"/>
 				</xs:sequence>
@@ -255,6 +259,7 @@
 					<xs:element minOccurs="0" name="IdentifierValue" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="NoAppointmentReqiured" type="tns:ConditionalIndicator"/>
 					<xs:element minOccurs="0" name="ServiceCategory" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SpecialtyCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="TargetGroup" nillable="true" type="xs:string"/>
@@ -358,6 +363,7 @@
 					<xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResult"/>
 					<xs:element minOccurs="0" name="EstimatedTotalItems" type="xs:int"/>
 					<xs:element minOccurs="0" name="EstimatedTotalPages" type="xs:int"/>
+					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
 					<xs:element minOccurs="0" name="Status" type="tns:SearchResultsStatus"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -446,6 +452,13 @@
 						<xs:annotation>
 							<xs:appinfo>
 								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="ServiceType">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">24</EnumerationValue>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:enumeration>
@@ -581,44 +594,14 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="Heading" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ImageURI" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
 					<xs:element minOccurs="0" name="RetrieveDetailsURI" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="SubHeading" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="SearchItem" nillable="true" type="tns:SearchItem"/>
-			<xs:complexType name="ArrayOfContactPoint">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
-			<xs:complexType name="ContactPoint">
-				<xs:complexContent mixed="false">
-					<xs:extension base="tns:ModeratedRecord">
-						<xs:sequence>
-							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
-							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
-						</xs:sequence>
-					</xs:extension>
-				</xs:complexContent>
-			</xs:complexType>
-			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
-			<xs:complexType name="ModeratedRecord">
-				<xs:sequence>
-					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
-					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
-					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
-					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
 			<xs:simpleType name="RecordStatus">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Complete"/>
@@ -656,6 +639,38 @@
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
+			<xs:complexType name="ArrayOfContactPoint">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfContactPoint" nillable="true" type="tns:ArrayOfContactPoint"/>
+			<xs:complexType name="ContactPoint">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ModeratedRecord">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="ContactOrderPreference" type="xs:int"/>
+							<xs:element minOccurs="0" name="ContactPointId" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointPurpose" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ContactPointType" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="ContactPoint" nillable="true" type="tns:ContactPoint"/>
+			<xs:complexType name="ModeratedRecord">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="RecordPrivacyPolicy" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="RecordStatus" type="tns:RecordStatus"/>
+					<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ModeratedRecord" nillable="true" type="tns:ModeratedRecord"/>
 			<xs:complexType name="ProviderList">
 				<xs:complexContent mixed="false">
 					<xs:extension base="tns:PagedSearchResults">
@@ -969,54 +984,54 @@
 	</wsdl:message>
 	<wsdl:portType name="Locator">
 		<wsdl:operation name="LocateSearchEndpointsForCoverageArea">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Locator/LocateSearchEndpointsForCoverageArea" message="tns:Locator_LocateSearchEndpointsForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Locator/LocateSearchEndpointsForCoverageAreaResponse" message="tns:Locator_LocateSearchEndpointsForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Locator/LocateSearchEndpointsForCoverageArea" message="tns:Locator_LocateSearchEndpointsForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Locator/LocateSearchEndpointsForCoverageAreaResponse" message="tns:Locator_LocateSearchEndpointsForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetReferenceListDetails">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Locator/GetReferenceListDetails" message="tns:Locator_GetReferenceListDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Locator/GetReferenceListDetailsResponse" message="tns:Locator_GetReferenceListDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Locator/GetReferenceListDetails" message="tns:Locator_GetReferenceListDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Locator/GetReferenceListDetailsResponse" message="tns:Locator_GetReferenceListDetails_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="LocatorMaintenance">
 		<wsdl:operation name="RegisterSearchEndpointForCoverageArea">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/RegisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/RegisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForAllCoverageAreas">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreasResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreasResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForCoverageArea">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Search">
 		<wsdl:operation name="Search">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/Search" message="tns:Search_Search_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/Search" message="tns:Search_Search_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<wsdl:input wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
-			<wsdl:output wsaw:Action="http://schema.omg.net/Health/ServD/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_Locator" type="tns:Locator">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="LocateSearchEndpointsForCoverageArea">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Locator/LocateSearchEndpointsForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Locator/LocateSearchEndpointsForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1025,7 +1040,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="GetReferenceListDetails">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Locator/GetReferenceListDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Locator/GetReferenceListDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1037,7 +1052,7 @@
 	<wsdl:binding name="BasicHttpBinding_LocatorMaintenance" type="tns:LocatorMaintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="RegisterSearchEndpointForCoverageArea">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1046,7 +1061,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForAllCoverageAreas">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1055,7 +1070,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForCoverageArea">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1067,7 +1082,7 @@
 	<wsdl:binding name="BasicHttpBinding_Search" type="tns:Search">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Search">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/Search" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/Search" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1076,7 +1091,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreOrganizations" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizations" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1085,7 +1100,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1094,7 +1109,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreServiceSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1103,7 +1118,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<soap:operation soapAction="http://schema.omg.net/Health/ServD/Search/MoreProviders" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreProviders" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

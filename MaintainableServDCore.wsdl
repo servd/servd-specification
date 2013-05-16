@@ -17,6 +17,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="AddressSearchParameters" nillable="true" type="tns:AddressSearchParameters"/>
 					<xs:element minOccurs="0" name="Availability" nillable="true" type="tns:ArrayOfAvailability"/>
+					<xs:element minOccurs="0" name="CoverageAreaCode" nillable="true" type="xs:string"/>
 					<xs:element minOccurs="0" name="ModifiedAfterDate" nillable="true" type="xs:dateTime"/>
 					<xs:element minOccurs="0" name="OrganizationSearchParameters" nillable="true" type="tns:ArrayOfOrganizationSearchParameters"/>
 					<xs:element minOccurs="0" name="ProviderSearchParameters" nillable="true" type="tns:ArrayOfProviderSearchParameters"/>
@@ -973,6 +974,7 @@
 							<xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="MapReferenceSource" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="NotAvailableTimes" nillable="true" type="tns:ArrayOfNotAvailable"/>
+							<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="OtherAddresses" nillable="true" type="tns:ArrayOfAddress"/>
 							<xs:element minOccurs="0" name="PrimaryAddress" nillable="true" type="tns:Address"/>
 							<xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:string"/>
@@ -1083,6 +1085,7 @@
 							<xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ArrayOfServiceSiteSetting"/>
+							<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Specialties" nillable="true" type="tns:ArrayOfSpecialty"/>
 							<xs:element minOccurs="0" name="TargetGroups" nillable="true" type="tns:ArrayOfServiceSiteTargetGroup"/>
 						</xs:sequence>
@@ -1349,6 +1352,22 @@
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="PublicKey" nillable="true" type="tns:PublicKey"/>
+			<xs:element name="RetrieveServiceSiteProviderDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ServiceSiteProviderId" nillable="true" type="q11:ArrayOfstring" xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
+						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RetrieveServiceSiteProviderDetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="RetrieveServiceSiteProviderDetailsResult" nillable="true" type="tns:ArrayOfServiceSiteProvider"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="OrganizationAdd">
 				<xs:complexType>
 					<xs:sequence>
@@ -1452,7 +1471,6 @@
 			<xs:element name="SiteAdd">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:Site"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1483,7 +1501,6 @@
 			<xs:element name="ServiceSiteAdd">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string"/>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:ServiceSite"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1541,7 +1558,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AddServiceSiteProvider">
+			<xs:element name="ServiceSiteProviderAdd">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:ServiceSiteProvider"/>
@@ -1549,14 +1566,14 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AddServiceSiteProviderResponse">
+			<xs:element name="ServiceSiteProviderAddResponse">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="AddServiceSiteProviderResult" nillable="true" type="tns:UpdateRecordResult"/>
+						<xs:element minOccurs="0" name="ServiceSiteProviderAddResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="UpdateServiceSiteProvider">
+			<xs:element name="ServiceSiteProviderUpdate">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" name="details" nillable="true" type="tns:ServiceSiteProvider"/>
@@ -1564,10 +1581,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="UpdateServiceSiteProviderResponse">
+			<xs:element name="ServiceSiteProviderUpdateResponse">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="UpdateServiceSiteProviderResult" nillable="true" type="tns:UpdateRecordResult"/>
+						<xs:element minOccurs="0" name="ServiceSiteProviderUpdateResult" nillable="true" type="tns:ArrayOfUpdateRecordResult"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1825,6 +1842,12 @@
 	<wsdl:message name="RetrieveDetails_RetrievePublicKeys_OutputMessage">
 		<wsdl:part name="parameters" element="tns:RetrievePublicKeysResponse"/>
 	</wsdl:message>
+	<wsdl:message name="RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage">
+		<wsdl:part name="parameters" element="tns:RetrieveServiceSiteProviderDetails"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage">
+		<wsdl:part name="parameters" element="tns:RetrieveServiceSiteProviderDetailsResponse"/>
+	</wsdl:message>
 	<wsdl:message name="Maintenance_OrganizationAdd_InputMessage">
 		<wsdl:part name="parameters" element="tns:OrganizationAdd"/>
 	</wsdl:message>
@@ -1873,17 +1896,17 @@
 	<wsdl:message name="Maintenance_ProviderUpdate_OutputMessage">
 		<wsdl:part name="parameters" element="tns:ProviderUpdateResponse"/>
 	</wsdl:message>
-	<wsdl:message name="Maintenance_AddServiceSiteProvider_InputMessage">
-		<wsdl:part name="parameters" element="tns:AddServiceSiteProvider"/>
+	<wsdl:message name="Maintenance_ServiceSiteProviderAdd_InputMessage">
+		<wsdl:part name="parameters" element="tns:ServiceSiteProviderAdd"/>
 	</wsdl:message>
-	<wsdl:message name="Maintenance_AddServiceSiteProvider_OutputMessage">
-		<wsdl:part name="parameters" element="tns:AddServiceSiteProviderResponse"/>
+	<wsdl:message name="Maintenance_ServiceSiteProviderAdd_OutputMessage">
+		<wsdl:part name="parameters" element="tns:ServiceSiteProviderAddResponse"/>
 	</wsdl:message>
-	<wsdl:message name="Maintenance_UpdateServiceSiteProvider_InputMessage">
-		<wsdl:part name="parameters" element="tns:UpdateServiceSiteProvider"/>
+	<wsdl:message name="Maintenance_ServiceSiteProviderUpdate_InputMessage">
+		<wsdl:part name="parameters" element="tns:ServiceSiteProviderUpdate"/>
 	</wsdl:message>
-	<wsdl:message name="Maintenance_UpdateServiceSiteProvider_OutputMessage">
-		<wsdl:part name="parameters" element="tns:UpdateServiceSiteProviderResponse"/>
+	<wsdl:message name="Maintenance_ServiceSiteProviderUpdate_OutputMessage">
+		<wsdl:part name="parameters" element="tns:ServiceSiteProviderUpdateResponse"/>
 	</wsdl:message>
 	<wsdl:message name="Maintenance_UploadSiteCertificate_InputMessage">
 		<wsdl:part name="parameters" element="tns:UploadSiteCertificate"/>
@@ -1964,6 +1987,10 @@
 			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
 			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
 		</wsdl:operation>
+		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetails" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage"/>
+		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Maintenance">
 		<wsdl:operation name="OrganizationAdd">
@@ -1998,13 +2025,13 @@
 			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
 			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
-		<wsdl:operation name="AddServiceSiteProvider">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/AddServiceSiteProvider" message="tns:Maintenance_AddServiceSiteProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/AddServiceSiteProviderResponse" message="tns:Maintenance_AddServiceSiteProvider_OutputMessage"/>
+		<wsdl:operation name="ServiceSiteProviderAdd">
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAdd" message="tns:Maintenance_ServiceSiteProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAddResponse" message="tns:Maintenance_ServiceSiteProviderAdd_OutputMessage"/>
 		</wsdl:operation>
-		<wsdl:operation name="UpdateServiceSiteProvider">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UpdateServiceSiteProvider" message="tns:Maintenance_UpdateServiceSiteProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UpdateServiceSiteProviderResponse" message="tns:Maintenance_UpdateServiceSiteProvider_OutputMessage"/>
+		<wsdl:operation name="ServiceSiteProviderUpdate">
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdate" message="tns:Maintenance_ServiceSiteProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdateResponse" message="tns:Maintenance_ServiceSiteProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
 			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
@@ -2126,6 +2153,15 @@
 				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
+		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetails" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:binding name="BasicHttpBinding_Maintenance" type="tns:Maintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -2201,8 +2237,8 @@
 				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation name="AddServiceSiteProvider">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/AddServiceSiteProvider" style="document"/>
+		<wsdl:operation name="ServiceSiteProviderAdd">
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2210,8 +2246,8 @@
 				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation name="UpdateServiceSiteProvider">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/UpdateServiceSiteProvider" style="document"/>
+		<wsdl:operation name="ServiceSiteProviderUpdate">
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
