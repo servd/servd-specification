@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06087BC9-B777-48A7-93C3-44BC1B445E02}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Interfaces</RootNamespace>
+    <AssemblyName>Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Interfaces.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Data Model\Common\Address.cs" />
+    <Compile Include="Data Model\Common\Attribute.cs" />
+    <Compile Include="Data Model\Common\Available.cs" />
+    <Compile Include="Data Model\Common\ContactPoint.cs" />
+    <Compile Include="Data Model\Common\CoverageArea.cs" />
+    <Compile Include="Data Model\Common\NotAvailable.cs" />
+    <Compile Include="Data Model\Common\ModeratedRecord.cs" />
+    <Compile Include="Data Model\Common\ServiceType.cs" />
+    <Compile Include="Data Model\Enumerations\DaysOfWeek.cs" />
+    <Compile Include="Data Model\Enumerations\RecordTypeEnum.cs" />
+    <Compile Include="Parameters\RecordIndex.cs" />
+    <Compile Include="Results\PublicKey.cs" />
+    <Compile Include="Results\Result.cs" />
+    <Compile Include="Results\SearchItem.cs" />
+    <Compile Include="Results\UpdateRecordResult.cs" />
+    <Compile Include="Results\RecordRequiringApproval.cs" />
+    <Compile Include="Results\DeleteRecordResult.cs" />
+    <Compile Include="Data Model\Enumerations\AttributeVerificationStatusEnum.cs" />
+    <Compile Include="Data Model\Enumerations\SearchResultsStatusEnum.cs" />
+    <Compile Include="Data Model\Enumerations\RecordStatusEnum.cs" />
+    <Compile Include="Data Model\Common\Identifier.cs" />
+    <Compile Include="Data Model\Common\CatchmentArea.cs" />
+    <Compile Include="Data Model\Common\Specialty.cs" />
+    <Compile Include="Data Model\Common\ReferralMethod.cs" />
+    <Compile Include="Data Model\Enumerations\ConditionalIndicatorEnum.cs" />
+    <Compile Include="Data Model\Organization Data Model\OrganizationAffiliation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data Model\Organization Data Model\Organization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data Model\Organization Data Model\OrganizationName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data Model\Provider Data Model\Provider.cs" />
+    <Compile Include="Data Model\Provider Data Model\ProviderLanguage.cs" />
+    <Compile Include="Data Model\Provider Data Model\ProviderName.cs" />
+    <Compile Include="Data Model\Service Site Data Model\ServiceSite.cs" />
+    <Compile Include="Data Model\Service Site Data Model\ServiceSiteProvider.cs" />
+    <Compile Include="Data Model\Service Site Data Model\ServiceSiteSetting.cs" />
+    <Compile Include="Data Model\Service Site Data Model\ServiceSiteTargetGroup.cs" />
+    <Compile Include="Data Model\Site Data Model\Site.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data Model\Site Data Model\SiteGeographicalCoordinates.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Locator.cs" />
+    <Compile Include="Maintenance.cs" />
+    <Compile Include="Results\Collections.cs" />
+    <Compile Include="Parameters\Availability.cs" />
+    <Compile Include="Data Model\Enumerations\StringMatchTypeEnum.cs" />
+    <Compile Include="Parameters\AddressSearchParameters.cs" />
+    <Compile Include="Parameters\OrganizationSearchParameters.cs" />
+    <Compile Include="Parameters\ProviderSearchParameters.cs" />
+    <Compile Include="Parameters\ProximitySearchParameters.cs" />
+    <Compile Include="Parameters\SearchControlParameters.cs" />
+    <Compile Include="Parameters\SearchInputParameters.cs" />
+    <Compile Include="Parameters\ServiceSiteSearchParameters.cs" />
+    <Compile Include="Parameters\HasAttribute.cs" />
+    <Compile Include="Parameters\SiteSearchParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\AttributeVerificationResult.cs" />
+    <Compile Include="Results\LocatorUpdateResult.cs" />
+    <Compile Include="Data Model\Enumerations\RecordUpdateResultStatusEnum.cs" />
+    <Compile Include="Results\OrganizationSearchItem.cs" />
+    <Compile Include="Results\PagedSearchResults.cs" />
+    <Compile Include="Results\ProviderSearchItem.cs" />
+    <Compile Include="Results\ServiceSiteSearchItem.cs" />
+    <Compile Include="Results\SiteSearchItem.cs" />
+    <Compile Include="RetrieveDetails.cs" />
+    <Compile Include="Search.cs" />
+    <Compile Include="VerifyDetails.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
