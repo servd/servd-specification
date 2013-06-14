@@ -12,7 +12,6 @@ using ServD.Common;
 
 namespace ServD.Results
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Record Requiring Approval is used to summarize a change to a record in the 
 	/// <b>Maintainable ServD Core</b> that requires approval by an Approver.<br/>

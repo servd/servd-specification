@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Service Site may identify the referral methods that are appropriate to its
 	/// circumstances.

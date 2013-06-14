@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// This entity describes the Service Site with respect to facilities arrangement.
 	/// Is this a walk-in clinic, a corporate office environment, a surgical suite, and

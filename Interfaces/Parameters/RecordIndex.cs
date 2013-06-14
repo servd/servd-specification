@@ -12,7 +12,6 @@ using ServD.Common;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// An index to a Record by its primary identifier
 	/// </summary>

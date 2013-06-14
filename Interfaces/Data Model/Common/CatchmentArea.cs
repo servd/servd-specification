@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// This entity provides for grouping service sites into geographical areas
 	/// appropriate for specific agencies, each with their own catchment area. This is

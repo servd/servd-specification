@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Some service sites are directed to specific target groups: the Site might be on
 	/// a reserve and available to First Nations peoples. A Site might be in existence

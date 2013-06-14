@@ -16,7 +16,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServD.Results
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Search Results object exposes the results of the Search Operations.<br/>
 	/// These collections are provided to permit the searcher to 
@@ -54,7 +53,6 @@ namespace ServD.Results
 		}
 	}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Paged List of Organizations returned from the Search method
 	/// </summary>
@@ -68,7 +66,6 @@ namespace ServD.Results
 		public OrganizationSearchItem[] Items { get; set; }
 	}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Paged List of Sites returned from the Search method
 	/// </summary>
@@ -82,7 +79,6 @@ namespace ServD.Results
 		public SiteSearchItem[] Items { get; set; }
 	}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Paged List of Service Sites returned from the Search method
 	/// </summary>
@@ -96,7 +92,6 @@ namespace ServD.Results
 		public ServiceSiteSearchItem[] Items { get; set; }
 	}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Paged List of Providers returned from the Search method
 	/// </summary>
@@ -123,7 +118,6 @@ namespace ServD.Results
 	//	public CoverageArea> Results { get; set; }
 	//}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Retrieve the details of a specific CTS2 Reference list so that
 	/// connecting to the list is possible.

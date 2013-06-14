@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// An Organization may be known by any number of external identifiers. Each
 	/// identifier is specified by a type, an issuing authority, and a controlling

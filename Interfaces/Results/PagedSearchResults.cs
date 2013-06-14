@@ -14,7 +14,6 @@ using ServD.Common;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Paged Search Results provides a common paging foundation under all search list results to
 	/// permit the loading of longer lists of data.

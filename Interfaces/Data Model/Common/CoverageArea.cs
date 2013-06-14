@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// This entity provides the scope within the <b>ServD Locator</b> for the purpose of selecting
 	/// which ServD Directories are to be searched for a specific area.

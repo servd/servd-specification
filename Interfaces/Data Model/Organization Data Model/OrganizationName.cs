@@ -10,7 +10,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// An agency may be known by different names distinguished by name type and name
 	/// purpose.

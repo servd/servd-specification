@@ -11,7 +11,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Provider is any person that delivers clinical value in the
 	/// provision of health services. Anyone who becomes a matter of record on the

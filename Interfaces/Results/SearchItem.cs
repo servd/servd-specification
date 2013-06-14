@@ -14,7 +14,6 @@ using ServD.Common;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The abstract Search Item class provides the common properties that are required
 	/// for all Search Items.

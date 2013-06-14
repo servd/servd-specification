@@ -11,7 +11,6 @@ using System.Text;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Day Of Week Enumeration is used in conjunction with the available time information
 	/// to mark which days of the week are available.

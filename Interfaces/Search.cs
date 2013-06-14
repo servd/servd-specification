@@ -10,7 +10,6 @@ using ServD.Results;
 
 namespace ServD.Interface
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The <b>Search</b> interface is the core interface in the <b>ServD
 	/// </b>specification. It provides operations to search for lists of summary

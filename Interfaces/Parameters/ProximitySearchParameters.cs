@@ -8,7 +8,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Filter options for the searching for records that are within a specified location (by co-ordinates)<br/>
 	/// This will check that the latitude and longitude of a Sites SiteGeographicalCoordinate falls within the

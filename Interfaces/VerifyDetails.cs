@@ -9,7 +9,6 @@ using ServD.DataModel;
 
 namespace ServD.Interface
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Verify Details Interface is exposed by a <b>ServD Verifier</b> to permit a 
 	/// <b>Maintainable ServD Core</b> to verify claims made by a <b>Maintenance Application</b>

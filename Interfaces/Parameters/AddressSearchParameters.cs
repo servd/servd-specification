@@ -9,7 +9,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Filter options for the searching for records that have the specified address/catchment area values
 	/// </summary>

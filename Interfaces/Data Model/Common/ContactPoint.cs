@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// An Organization at a particular Site will have different contact information
 	/// (perhaps) than the information held at the Organization level independent of

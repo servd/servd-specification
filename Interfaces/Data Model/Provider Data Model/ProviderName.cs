@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Provider may be known by one or more names distinguished by type and
 	/// purpose. For example: married name, professional name, birth name, and so on.

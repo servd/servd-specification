@@ -13,7 +13,6 @@ using ServD.Common;
 
 namespace ServD.Results
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Attribute Verification Result is returned by the operations on the <b>Verify Details</b> interface
 	/// to indicate the validity of a claim of a record to have a specific attribute.

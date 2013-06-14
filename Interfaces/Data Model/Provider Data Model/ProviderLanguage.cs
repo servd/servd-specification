@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Provider is able to deliver services in one or more languages. This
 	/// entity records the capabilities of the Provider within the identified languages,

@@ -11,7 +11,6 @@ using System.Text;
 
 namespace ServD.Results
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The result just provides a simple summary of the changes that were made (if any)
 	/// </summary>

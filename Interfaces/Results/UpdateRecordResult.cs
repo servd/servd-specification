@@ -13,7 +13,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ServD.Results
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Update Record result is returned by the Maintenance operations while updating and adding data.
 	/// It provides a simple structure by which the Maintenance Application can match its internal records

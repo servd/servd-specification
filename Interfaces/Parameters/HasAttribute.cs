@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Has Attribute Parameter is used to specify that Provider, Site or Service Site has
 	/// the defined value.

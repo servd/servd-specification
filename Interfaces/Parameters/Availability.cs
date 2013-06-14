@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The availability parameter is used to specify at what date/time that you are specifically looking for the service
 	/// to be available. Alternately it can be used to specify which day(s) of the week (with optional time).<br/>

@@ -10,7 +10,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Search Input parameters are used by the Search interface operations to filter
 	/// data to find the data that they are looking for.<br/>

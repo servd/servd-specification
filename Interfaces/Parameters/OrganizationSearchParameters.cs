@@ -9,7 +9,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Search for Organizations that have the following properties
 	/// </summary>

@@ -9,7 +9,6 @@ using ServD.Common;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Search Control Parameters are used to specify what level of data is to be retrieved
 	/// </summary>

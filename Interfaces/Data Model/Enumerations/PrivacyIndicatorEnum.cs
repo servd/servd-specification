@@ -8,7 +8,6 @@ using ServD.Parameters;
 
 namespace ServD.Enumerations
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Privacy Indicator is used to describe the conditions under which this data is permitted to be viewed.<br/>
 	/// This property is only able to be changed by Authors and Approvers of data.

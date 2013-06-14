@@ -10,7 +10,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Parameters
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// Search for Sites that have the following properties
 	/// </summary>

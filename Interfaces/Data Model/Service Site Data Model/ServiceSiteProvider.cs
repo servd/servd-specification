@@ -11,7 +11,6 @@ using ServD.Common;
 
 namespace ServD.DataModel
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// A Provider may work from zero, one or more service sites.
 	/// </summary>
