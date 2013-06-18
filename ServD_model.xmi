@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:thecustomprofile="http://www.sparxsystems.com/profiles/thecustomprofile/1.0" xmlns:SoaML="http://www.sparxsystems.com/profiles/SoaML/1.0" xmlns:EAUML="http://www.sparxsystems.com/profiles/EAUML/1.0">
-  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5" />
-  <uml:Model xmi:type="uml:Model" name="EA_Model">
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.omg.org/spec/UML/20110701" >
+  <uml:Model xmi:type="uml:Model" name="ServD_Model">
     <packagedElement xmi:type="uml:Package" xmi:id="EAPK_F2BA9025_5805_4f0b_AB98_850B9604CC01" name="Platform Independent Model (PIM)">
       <packagedElement xmi:type="uml:Package" xmi:id="EAPK_3B2581BE_FFF9_410d_A494_4F3DFE6897EF" name="DataTypes">
         <packagedElement xmi:type="uml:DataType" xmi:id="EAID_38C6DFDA_43E0_43c0_9F90_453D0A28DB12" name="Byte" />
@@ -38,7 +37,6 @@
         <packagedElement xmi:type="uml:Interface" xmi:id="EAID_A0A428EA_1711_4e7a_89D1_B48F14A569D3" name="Locator" isAbstract="true">
           <ownedOperation xmi:id="EAID_4BDF59A0_C588_4d3f_AD11_C040937DB01A" name="GetReferenceListDetails" visibility="public">
             <ownedParameter xmi:id="EAID_44AEF10A_74AE_4c67_81BF_75BBB8C5F572" name="ReferenceListTypes" isUnique="false">
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="DCAh_EAID_44AEF10A_74AE_4c67_81BF_75BBB8C5F572" value="*" />
               <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#String" />
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_PL000000_74AE_4c67_81BF_75BBB8C5F572" value="0" />
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_PU000000_74AE_4c67_81BF_75BBB8C5F572" value="*" />
@@ -114,7 +112,6 @@
         <packagedElement xmi:type="uml:Interface" xmi:id="EAID_0B7E8D37_C3D2_4b0c_A878_B584E142FCC4" name="Maintenance" isAbstract="true">
           <ownedOperation xmi:id="EAID_AF0642CF_8B0B_4a85_A5D2_E5BB431F7AEA" name="ApproveRecords" visibility="public">
             <ownedParameter xmi:id="EAID_98D8D7FA_2E03_460d_B0CA_DF7AEF1F33F2" name="Identifiers" type="EAID_CF8E1B6B_1A0E_45b7_9252_3641307B6A9A" isUnique="false">
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="DCAh_EAID_98D8D7FA_2E03_460d_B0CA_DF7AEF1F33F2" value="*" />
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_PL000000_2E03_460d_B0CA_DF7AEF1F33F2" value="0" />
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_PU000000_2E03_460d_B0CA_DF7AEF1F33F2" value="*" />
             </ownedParameter>
@@ -373,7 +370,6 @@
           </ownedOperation>
           <ownedOperation xmi:id="EAID_2E498071_6B7B_4123_99F3_64455B9528DF" name="RetrieveServiceSiteProvider" visibility="public">
             <ownedParameter xmi:id="EAID_7CF61E5F_F056_4ae5_BDCD_0ECDDF3A25F8" name="ServiceSiteProviderId" isUnique="false">
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="DCAh_EAID_7CF61E5F_F056_4ae5_BDCD_0ECDDF3A25F8" value="*" />
               <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#String" />
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_PL000000_F056_4ae5_BDCD_0ECDDF3A25F8" value="0" />
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_PU000000_F056_4ae5_BDCD_0ECDDF3A25F8" value="*" />
