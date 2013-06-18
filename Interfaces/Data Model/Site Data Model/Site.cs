@@ -49,9 +49,9 @@ namespace ServD.DataModel
 		/// <summary>
 		/// The Id of the Parent Organization Record
 		/// </summary>
+		/// <remarks>This is not a mandatory field as during an Add operation this field will be filled in</remarks>
 		[DataMember]
 		[StringLength(50)]
-		[Required]
 		public String OrganizationId { get; set; }
 
 		/// <summary>

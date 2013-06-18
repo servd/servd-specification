@@ -43,9 +43,9 @@ namespace ServD.DataModel
 		/// <summary>
 		/// The Id of the Parent Site Record
 		/// </summary>
+		/// <remarks>This is not a mandatory field as during an Add operation this field will be filled in</remarks>
 		[DataMember]
 		[StringLength(50)]
-		[Required]
 		public String SiteId { get; set; }
 
 		/// <summary>
