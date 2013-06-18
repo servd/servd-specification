@@ -92,6 +92,30 @@
 				</xsl:for-each>
 				</table>
 
+				<h2>
+					Invalid Object bounds (<xsl:value-of select="count(//ownedParameter[count(lowerValue) > 1 or count(upperValue) > 1])"/>)
+				</h2>
+				<table>
+					<tr>
+						<th>Object Name</th>
+						<th>Attribute Name</th>
+						<th>Type</th>
+					</tr>
+					<xsl:for-each select="//ownedParameter[count(lowerValue) > 1 or count(upperValue) > 1]">
+						<tr>
+							<td>
+								<xsl:value-of select="parent::node()/parent::node()/@name"/>.<xsl:value-of select="parent::node()/@name"/>
+							</td>
+							<td>
+								<xsl:value-of select="./@name"/>
+							</td>
+							<td class="invalid">
+								<xsl:value-of select="./type/@xmi:idref"/>
+							</td>
+						</tr>
+					</xsl:for-each>
+				</table>
+
 				<h1>Service Model</h1>
 				<xsl:for-each select="//packagedElement[./ownedOperation]">
 					<p>

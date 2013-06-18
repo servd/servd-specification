@@ -36,6 +36,8 @@
 	<!-- Remove some other custom EA bits added in -->
 	<xsl:template match="EAUML:enumeration[./@base_Enumeration]" />
 	<xsl:template match ="thecustomprofile:Attribute[./@base_Enumeration]" />
+	<!--<xsl:template match="xmi:XMI/@xmlns:thecustomprofile"></xsl:template>-->
+	<xsl:template match ="xmi:Documentation[./@exporter = 'Enterprise Architect']" />
 
 	<xsl:template match ="thecustomprofile:operation_guid[./@base_Message and ./@operation_guid]" />
 	<xsl:template match ="thecustomprofile:interface[./@base_Lifeline]" />
@@ -58,12 +60,14 @@
 					<xsl:attribute name="value">0</xsl:attribute>
 				</xsl:element>
 			</xsl:if>
-			<xsl:element name="upperValue" >
+			<xsl:if test="not(./upperValue)">
+				<xsl:element name="upperValue" >
 				<xsl:attribute name="xmi:type">uml:LiteralUnlimitedNatural</xsl:attribute>
 				<xsl:attribute name="xmi:id">DCAh_<xsl:value-of disable-output-escaping="yes" select="./@xmi:id" />
 				</xsl:attribute>
 				<xsl:attribute name="value">*</xsl:attribute>
 			</xsl:element>
+			</xsl:if>
 			<xsl:apply-templates select="node()"/>
 		</xsl:copy>
 		<!--<test isarray="true"/>-->
@@ -158,6 +162,11 @@
 	
 	<!-- Remove the profileApplication bits -->
 	<xsl:template match ="profileApplication" />
+	
+	<!-- Change the name of the model from EA_Model -->
+	<xsl:template match="uml:Model/@name">
+		<xsl:attribute name="name">ServD_Model</xsl:attribute>
+	</xsl:template>
 	
 	<!-- Pass through all other elements/attributes as is -->
 	<xsl:template match="@* | node()">
