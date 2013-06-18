@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="ServDVerifier" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20120901" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="ServDVerifier" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130630" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:element name="VerifyOrganization">
 				<xs:complexType>
 					<xs:sequence>
@@ -56,34 +55,10 @@
 					<xs:enumeration value="Partial"/>
 					<xs:enumeration value="CompleteAndRequiresModeration"/>
 					<xs:enumeration value="CompleteAndModerationRejected"/>
-					<xs:enumeration value="Deleted">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndRequiresModeration">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndModerationRejected">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DoNotUpdate">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
+					<xs:enumeration value="Deleted"/>
+					<xs:enumeration value="DeletedAndRequiresModeration"/>
+					<xs:enumeration value="DeletedAndModerationRejected"/>
+					<xs:enumeration value="DoNotUpdate"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
@@ -187,47 +162,6 @@
 				</xs:complexType>
 			</xs:element>
 		</xs:schema>
-		<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
-			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
-			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
-			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
-			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
-			<xs:element name="byte" nillable="true" type="xs:byte"/>
-			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
-			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
-			<xs:element name="double" nillable="true" type="xs:double"/>
-			<xs:element name="float" nillable="true" type="xs:float"/>
-			<xs:element name="int" nillable="true" type="xs:int"/>
-			<xs:element name="long" nillable="true" type="xs:long"/>
-			<xs:element name="QName" nillable="true" type="xs:QName"/>
-			<xs:element name="short" nillable="true" type="xs:short"/>
-			<xs:element name="string" nillable="true" type="xs:string"/>
-			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
-			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
-			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
-			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
-			<xs:element name="char" nillable="true" type="tns:char"/>
-			<xs:simpleType name="char">
-				<xs:restriction base="xs:int"/>
-			</xs:simpleType>
-			<xs:element name="duration" nillable="true" type="tns:duration"/>
-			<xs:simpleType name="duration">
-				<xs:restriction base="xs:duration">
-					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
-					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
-					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="guid" nillable="true" type="tns:guid"/>
-			<xs:simpleType name="guid">
-				<xs:restriction base="xs:string">
-					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:attribute name="FactoryType" type="xs:QName"/>
-			<xs:attribute name="Id" type="xs:ID"/>
-			<xs:attribute name="Ref" type="xs:IDREF"/>
-		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="VerifyDetails_VerifyOrganization_InputMessage">
 		<wsdl:part name="parameters" element="tns:VerifyOrganization"/>
@@ -249,22 +183,22 @@
 	</wsdl:message>
 	<wsdl:portType name="VerifyDetails">
 		<wsdl:operation name="VerifyOrganization">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganization" message="tns:VerifyDetails_VerifyOrganization_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganizationResponse" message="tns:VerifyDetails_VerifyOrganization_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyOrganization" message="tns:VerifyDetails_VerifyOrganization_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyOrganizationResponse" message="tns:VerifyDetails_VerifyOrganization_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="VerifyProvider">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProvider" message="tns:VerifyDetails_VerifyProvider_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProviderResponse" message="tns:VerifyDetails_VerifyProvider_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyProvider" message="tns:VerifyDetails_VerifyProvider_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyProviderResponse" message="tns:VerifyDetails_VerifyProvider_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="VerifySite">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySite" message="tns:VerifyDetails_VerifySite_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySiteResponse" message="tns:VerifyDetails_VerifySite_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifySite" message="tns:VerifyDetails_VerifySite_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifySiteResponse" message="tns:VerifyDetails_VerifySite_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_VerifyDetails" type="tns:VerifyDetails">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="VerifyOrganization">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyOrganization" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyOrganization" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -273,7 +207,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="VerifyProvider">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifyProvider" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifyProvider" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -282,7 +216,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="VerifySite">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/VerifyDetails/VerifySite" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/VerifyDetails/VerifySite" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

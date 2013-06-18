@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20120901" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130630" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20120901" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
-			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:element name="Search">
 				<xs:complexType>
 					<xs:sequence>
@@ -165,34 +163,10 @@
 			<xs:simpleType name="ConditionalIndicator">
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="NotDefined"/>
-					<xs:enumeration value="Yes">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="No">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Unknown">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Conditional">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
+					<xs:enumeration value="Yes"/>
+					<xs:enumeration value="No"/>
+					<xs:enumeration value="Unknown"/>
+					<xs:enumeration value="Conditional"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="ConditionalIndicator" nillable="true" type="tns:ConditionalIndicator"/>
@@ -281,174 +255,30 @@
 			<xs:element name="Result" nillable="true" type="tns:Result"/>
 			<xs:simpleType name="RecordType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Organization">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="OrganizationAffiliation">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="OrganizationName">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Provider">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ProviderLanguage">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ProviderName">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ServiceSite">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ServiceSiteProvider">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">21</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ServiceSiteSetting">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">22</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ServiceSiteTargetGroup">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ServiceType">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">24</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Site">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="SiteGeographicalCoordinate">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Address">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Attribute">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">41</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Available">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">42</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ContactPoint">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">43</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="NotAvailable">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">44</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Keyword">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">45</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Identifier">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">46</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="CatchmentArea">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">47</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="Specialty">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">48</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ReferralMethod">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">49</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="CoverageArea">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">50</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
+					<xs:enumeration value="Organization"/>
+					<xs:enumeration value="OrganizationAffiliation"/>
+					<xs:enumeration value="OrganizationName"/>
+					<xs:enumeration value="Provider"/>
+					<xs:enumeration value="ProviderLanguage"/>
+					<xs:enumeration value="ProviderName"/>
+					<xs:enumeration value="ServiceSite"/>
+					<xs:enumeration value="ServiceSiteProvider"/>
+					<xs:enumeration value="ServiceSiteSetting"/>
+					<xs:enumeration value="ServiceSiteTargetGroup"/>
+					<xs:enumeration value="ServiceType"/>
+					<xs:enumeration value="Site"/>
+					<xs:enumeration value="SiteGeographicalCoordinate"/>
+					<xs:enumeration value="Address"/>
+					<xs:enumeration value="Attribute"/>
+					<xs:enumeration value="Available"/>
+					<xs:enumeration value="ContactPoint"/>
+					<xs:enumeration value="NotAvailable"/>
+					<xs:enumeration value="Keyword"/>
+					<xs:enumeration value="Identifier"/>
+					<xs:enumeration value="CatchmentArea"/>
+					<xs:enumeration value="Specialty"/>
+					<xs:enumeration value="ReferralMethod"/>
+					<xs:enumeration value="CoverageArea"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordType" nillable="true" type="tns:RecordType"/>
@@ -504,34 +334,10 @@
 					<xs:enumeration value="Partial"/>
 					<xs:enumeration value="CompleteAndRequiresModeration"/>
 					<xs:enumeration value="CompleteAndModerationRejected"/>
-					<xs:enumeration value="Deleted">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndRequiresModeration">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DeletedAndModerationRejected">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="DoNotUpdate">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
+					<xs:enumeration value="Deleted"/>
+					<xs:enumeration value="DeletedAndRequiresModeration"/>
+					<xs:enumeration value="DeletedAndModerationRejected"/>
+					<xs:enumeration value="DoNotUpdate"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordStatus" nillable="true" type="tns:RecordStatus"/>
@@ -594,11 +400,11 @@
 							<xs:element minOccurs="0" name="GenderCode" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="GivenNames" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="Languages" nillable="true" type="tns:ArrayOfProviderLanguage"/>
-							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="OrganizationIds" nillable="true" type="tns:ArrayOfString"/>
 							<xs:element minOccurs="0" name="PrimarySiteId" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string"/>
-							<xs:element minOccurs="0" name="ServiceSiteIds" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-							<xs:element minOccurs="0" name="SiteIds" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="ServiceSiteIds" nillable="true" type="tns:ArrayOfString"/>
+							<xs:element minOccurs="0" name="SiteIds" nillable="true" type="tns:ArrayOfString"/>
 							<xs:element minOccurs="0" name="SpecialInterest" nillable="true" type="xs:string"/>
 							<xs:element minOccurs="0" name="TitleCode" nillable="true" type="xs:string"/>
 						</xs:sequence>
@@ -623,6 +429,12 @@
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:element name="ProviderLanguage" nillable="true" type="tns:ProviderLanguage"/>
+			<xs:complexType name="ArrayOfString">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString"/>
 			<xs:complexType name="ServiceSiteList">
 				<xs:complexContent mixed="false">
 					<xs:extension base="tns:PagedSearchResults">
@@ -770,7 +582,7 @@
 			<xs:element name="RetrieveOrganizationDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="OrganizationId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="IncludeSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
@@ -1217,7 +1029,7 @@
 			<xs:element name="RetrieveSiteDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="IncludeServiceSiteData" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
@@ -1234,7 +1046,7 @@
 			<xs:element name="RetrieveServiceSiteDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q6:ArrayOfstring" xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1250,7 +1062,7 @@
 			<xs:element name="RetrieveProviderDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q7:ArrayOfstring" xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1324,9 +1136,9 @@
 			<xs:element name="RetrievePublicKeys">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="SiteId" nillable="true" type="q8:ArrayOfstring" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="q9:ArrayOfstring" xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
-						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="q10:ArrayOfstring" xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="SiteId" nillable="true" type="tns:ArrayOfString"/>
+						<xs:element minOccurs="0" name="ServiceSiteId" nillable="true" type="tns:ArrayOfString"/>
+						<xs:element minOccurs="0" name="ProviderId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
@@ -1355,7 +1167,7 @@
 			<xs:element name="RetrieveServiceSiteProviderDetails">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="0" name="ServiceSiteProviderId" nillable="true" type="q11:ArrayOfstring" xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+						<xs:element minOccurs="0" name="ServiceSiteProviderId" nillable="true" type="tns:ArrayOfString"/>
 						<xs:element minOccurs="0" name="GetUnmoderatedDataWhereAvailable" type="xs:boolean"/>
 						<xs:element minOccurs="0" name="APIkey" nillable="true" type="xs:string"/>
 					</xs:sequence>
@@ -1415,41 +1227,11 @@
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Success"/>
 					<xs:enumeration value="SuccessRequiresModeration"/>
-					<xs:enumeration value="ErrorPermission">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="PartialRecordNotUpdatable">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ErrorDuplicateRecord">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-3</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ErrorValidation">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-4</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
-					<xs:enumeration value="ErrorOther">
-						<xs:annotation>
-							<xs:appinfo>
-								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-5</EnumerationValue>
-							</xs:appinfo>
-						</xs:annotation>
-					</xs:enumeration>
+					<xs:enumeration value="ErrorPermission"/>
+					<xs:enumeration value="PartialRecordNotUpdatable"/>
+					<xs:enumeration value="ErrorDuplicateRecord"/>
+					<xs:enumeration value="ErrorValidation"/>
+					<xs:enumeration value="ErrorOther"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="RecordUpdateResultStatus" nillable="true" type="tns:RecordUpdateResultStatus"/>
@@ -1732,55 +1514,6 @@
 			</xs:complexType>
 			<xs:element name="DeleteRecordResult" nillable="true" type="tns:DeleteRecordResult"/>
 		</xs:schema>
-		<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
-			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
-			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
-			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
-			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
-			<xs:element name="byte" nillable="true" type="xs:byte"/>
-			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
-			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
-			<xs:element name="double" nillable="true" type="xs:double"/>
-			<xs:element name="float" nillable="true" type="xs:float"/>
-			<xs:element name="int" nillable="true" type="xs:int"/>
-			<xs:element name="long" nillable="true" type="xs:long"/>
-			<xs:element name="QName" nillable="true" type="xs:QName"/>
-			<xs:element name="short" nillable="true" type="xs:short"/>
-			<xs:element name="string" nillable="true" type="xs:string"/>
-			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
-			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
-			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
-			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
-			<xs:element name="char" nillable="true" type="tns:char"/>
-			<xs:simpleType name="char">
-				<xs:restriction base="xs:int"/>
-			</xs:simpleType>
-			<xs:element name="duration" nillable="true" type="tns:duration"/>
-			<xs:simpleType name="duration">
-				<xs:restriction base="xs:duration">
-					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
-					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
-					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:element name="guid" nillable="true" type="tns:guid"/>
-			<xs:simpleType name="guid">
-				<xs:restriction base="xs:string">
-					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
-				</xs:restriction>
-			</xs:simpleType>
-			<xs:attribute name="FactoryType" type="xs:QName"/>
-			<xs:attribute name="Id" type="xs:ID"/>
-			<xs:attribute name="Ref" type="xs:IDREF"/>
-		</xs:schema>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
-			<xs:complexType name="ArrayOfstring">
-				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
-		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="Search_Search_InputMessage">
 		<wsdl:part name="parameters" element="tns:Search"/>
@@ -1946,122 +1679,122 @@
 	</wsdl:message>
 	<wsdl:portType name="Search">
 		<wsdl:operation name="Search">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/Search" message="tns:Search_Search_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/Search" message="tns:Search_Search_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="RetrieveDetails">
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetails" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetails" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Maintenance">
 		<wsdl:operation name="OrganizationAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAdd" message="tns:Maintenance_ServiceSiteProviderAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAddResponse" message="tns:Maintenance_ServiceSiteProviderAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAdd" message="tns:Maintenance_ServiceSiteProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAddResponse" message="tns:Maintenance_ServiceSiteProviderAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdate" message="tns:Maintenance_ServiceSiteProviderUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdateResponse" message="tns:Maintenance_ServiceSiteProviderUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdate" message="tns:Maintenance_ServiceSiteProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdateResponse" message="tns:Maintenance_ServiceSiteProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20120901/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_Search" type="tns:Search">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Search">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/Search" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/Search" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2070,7 +1803,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreOrganizations" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2079,7 +1812,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2088,7 +1821,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreServiceSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2097,7 +1830,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Search/MoreProviders" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2109,7 +1842,7 @@
 	<wsdl:binding name="BasicHttpBinding_RetrieveDetails" type="tns:RetrieveDetails">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2118,7 +1851,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveSiteDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2127,7 +1860,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2136,7 +1869,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveProviderDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2145,7 +1878,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrievePublicKeys" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeys" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2154,7 +1887,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/RetrieveDetails/RetrieveServiceSiteProviderDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2166,7 +1899,7 @@
 	<wsdl:binding name="BasicHttpBinding_Maintenance" type="tns:Maintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="OrganizationAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2175,7 +1908,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/OrganizationUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2184,7 +1917,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2193,7 +1926,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/SiteUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2202,7 +1935,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2211,7 +1944,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2220,7 +1953,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2229,7 +1962,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ProviderUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2238,7 +1971,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2247,7 +1980,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ServiceSiteProviderUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2256,7 +1989,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2265,7 +1998,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/UploadServiceSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2274,7 +2007,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/GetRecordsRequiringApproval" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApproval" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2283,7 +2016,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/ApproveRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2292,7 +2025,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/RejectRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2301,7 +2034,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20120901/Maintenance/DeleteRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
