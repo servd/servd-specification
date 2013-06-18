@@ -10,9 +10,8 @@ namespace ServD
 {
 	public class Constants
 	{
-		public const string ServDNamespace = "http://www.omg.org/spec/ServD/20120901";
-		public const string ServDBeta1Namespace = "http://www.omg.org/spec/ServD/20120901";
-		public const string ServDBeta2Namespace = "http://www.omg.org/spec/ServD/20120901"; //"http://www.omg.org/spec/ServD/20130501";
+		public const string ServDNamespace = "http://www.omg.org/spec/ServD/20130630";
+		//	public const string ServDBeta1Namespace = "http://www.omg.org/spec/ServD/20120901";
 	}
 
 	// This class and namespace are never actually used, they are just here to

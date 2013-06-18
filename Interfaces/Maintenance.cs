@@ -51,7 +51,7 @@ namespace ServD.Interface
 	/// to Complete. (If the user is only an Author and not an Approver the update will change
 	/// this value to CompleteAndRequiresModeration, and the Update result will be 
 	/// <b>SuccessRequiresModeration</b>)</example>
-	[ServiceContract(Namespace = Constants.ServDBeta2Namespace)]
+	[ServiceContract(Namespace = Constants.ServDNamespace)]
 	public interface Maintenance
 	{
 		/// <summary>

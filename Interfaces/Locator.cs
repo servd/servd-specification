@@ -18,7 +18,7 @@ namespace ServD.Interface
 	/// by the CTS2 reference list 'ServD.CA', which can be found at the URL returned by a call to
 	/// <b>GetReferenceListDetails('ServD.CA')</b>
 	/// </summary>
-	[ServiceContract(Namespace = Constants.ServDBeta2Namespace)]
+	[ServiceContract(Namespace = Constants.ServDNamespace)]
 	public interface Locator
 	{
 		/// <summary>
@@ -65,7 +65,7 @@ namespace ServD.Interface
 	/// The <b>Locator</b> interface provides a way to locate ServD Core instances that
 	/// expose the <b>Search</b> interface for a requested Coverage Area.
 	/// </summary>
-	[ServiceContract(Namespace = Constants.ServDBeta2Namespace)]
+	[ServiceContract(Namespace = Constants.ServDNamespace)]
 	public interface LocatorMaintenance
 	{
 		/// <summary>
