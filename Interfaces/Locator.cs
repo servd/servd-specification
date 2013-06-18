@@ -36,7 +36,7 @@ namespace ServD.Interface
 		/// Similar to how Google Maps, Bing Maps, Facebook apps etc. control app types access.</param>
 		/// <returns>A list of <b>ServD Core</b> endpoint URLs that implement the <b>ServD Search</b> interface</returns>
 		[OperationContract]
-		String[] LocateSearchEndpointsForCoverageArea(String CoverageAreaCode, string APIkey);
+		ServD.Common.ArrayOfString LocateSearchEndpointsForCoverageArea(String CoverageAreaCode, string APIkey);
 
 		/// <summary>
 		/// This method is used locate the URL(s) of the CTS2 reference list(s) of the defined type(s).
@@ -58,10 +58,9 @@ namespace ServD.Interface
 		/// <example>CST2-REST, CST2-WSDL</example>
 		/// </param>
 		[OperationContract]
-		ReferenceListDetail[] GetReferenceListDetails(String[] ReferenceListTypes, string InterfaceFormat, string APIkey);
+		ReferenceListDetail[] GetReferenceListDetails(ServD.Common.ArrayOfString ReferenceListTypes, string InterfaceFormat, string APIkey);
 	}
 
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The <b>Locator</b> interface provides a way to locate ServD Core instances that
 	/// expose the <b>Search</b> interface for a requested Coverage Area.
@@ -89,7 +88,7 @@ namespace ServD.Interface
 		/// A simple summary of the number of records that were affected
 		/// </returns>
 		[OperationContract]
-		LocatorUpdateResult RegisterSearchEndpointForCoverageArea(String Address, String[] CoverageAreaCodes, bool RemoveExistingEntries, string APIkey);
+		LocatorUpdateResult RegisterSearchEndpointForCoverageArea(String Address, ServD.Common.ArrayOfString CoverageAreaCodes, bool RemoveExistingEntries, string APIkey);
 
 		/// <summary>
 		/// Remove all coverage areas allocated to this <b>ServD Core</b> endpoint.
@@ -124,6 +123,6 @@ namespace ServD.Interface
 		/// A simple summary of the number of records that were affected
 		/// </returns>
 		[OperationContract]
-		LocatorUpdateResult UnregisterSearchEndpointForCoverageArea(string Address, string[] CoverageAreaCodes, string APIkey);
+		LocatorUpdateResult UnregisterSearchEndpointForCoverageArea(string Address, ServD.Common.ArrayOfString CoverageAreaCodes, string APIkey);
 	}
 }

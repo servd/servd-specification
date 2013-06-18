@@ -38,19 +38,19 @@ namespace ServD.Results
 		/// Collection of all Site Ids that this Provider is associated with
 		/// </summary>
 		[DataMember]
-		public String[] SiteIds { get; set; }
+		public ServD.Common.ArrayOfString SiteIds { get; set; }
 
 		/// <summary>
 		/// Collection of all Organization Ids (that also associate with the Site Ids above) that this Provider is associated with
 		/// </summary>
 		[DataMember]
-		public String[] OrganizationIds { get; set; }
+		public ServD.Common.ArrayOfString OrganizationIds { get; set; }
 
 		/// <summary>
 		/// Collection of all ServiceSite Ids (that also associate with the Site Ids above) that this Provider is associated with
 		/// </summary>
 		[DataMember]
-		public String[] ServiceSiteIds { get; set; }
+		public ServD.Common.ArrayOfString ServiceSiteIds { get; set; }
 
 		/// <summary>
 		/// The Title of the Provider.

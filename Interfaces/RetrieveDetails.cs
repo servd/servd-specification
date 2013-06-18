@@ -9,7 +9,6 @@ using ServD.DataModel;
 
 namespace ServD.Interface
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The <b>Retrieve Details</b> interface provides operations to retrieve the
 	/// detailed information about Organizations, Sites, Service Sites and Providers.
@@ -45,7 +44,7 @@ namespace ServD.Interface
 		/// </returns>
 		[OperationContract]
 		Organization[] RetrieveOrganizationDetails(
-							String[] OrganizationId,
+							ServD.Common.ArrayOfString OrganizationId,
 							bool IncludeSiteData,
 							bool IncludeServiceSiteData,
 							bool GetUnmoderatedDataWhereAvailable, string APIkey);
@@ -66,7 +65,7 @@ namespace ServD.Interface
 		/// </returns>
 		[OperationContract]
 		Site[] RetrieveSiteDetails(
-							String[] SiteId,
+							ServD.Common.ArrayOfString SiteId,
 							bool IncludeServiceSiteData,
 							bool GetUnmoderatedDataWhereAvailable, string APIkey);
 
@@ -85,7 +84,7 @@ namespace ServD.Interface
 		/// </returns>
 		[OperationContract]
 		ServiceSite[] RetrieveServiceSiteDetails(
-							String[] ServiceSiteId,
+							ServD.Common.ArrayOfString ServiceSiteId,
 							bool GetUnmoderatedDataWhereAvailable, string APIkey);
 
 		/// <summary>
@@ -103,7 +102,7 @@ namespace ServD.Interface
 		/// </returns>
 		[OperationContract]
 		Provider[] RetrieveProviderDetails(
-							String[] ProviderId,
+							ServD.Common.ArrayOfString ProviderId,
 							bool GetUnmoderatedDataWhereAvailable, string APIkey);
 
 		/// <summary>
@@ -122,9 +121,9 @@ namespace ServD.Interface
 		/// <returns>The collection of Public keys that have been requested.</returns>
 		[OperationContract]
 		ServD.Results.PublicKey[] RetrievePublicKeys(
-							String[] SiteId, 
-							String[] ServiceSiteId,
-							String[] ProviderId, string APIkey);
+							ServD.Common.ArrayOfString SiteId,
+							ServD.Common.ArrayOfString ServiceSiteId,
+							ServD.Common.ArrayOfString ProviderId, string APIkey);
 
 		/// <summary>
 		/// Retrieve the Complete set of details about the Service Site Provider(s) based on the
@@ -141,7 +140,7 @@ namespace ServD.Interface
 		/// </returns>
 		[OperationContract]
 		ServiceSiteProvider[] RetrieveServiceSiteProviderDetails(
-							String[] ServiceSiteProviderId,
+							ServD.Common.ArrayOfString ServiceSiteProviderId,
 							bool GetUnmoderatedDataWhereAvailable, string APIkey);
 	}
 }

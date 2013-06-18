@@ -13,7 +13,26 @@ using ServD.Common;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
+	/// <summary>
+	/// The Array String is here to create XSD that does not have Microsoft Schemas in them
+	/// </summary>
+	[CollectionDataContract(Namespace = Constants.ServDNamespace)]
+	public class ArrayOfString : List<String>
+	{
+		/// <summary>
+		/// This operator assists in being able to convert from standard string array
+		/// into this type to be able to use with the interface.
+		/// </summary>
+		/// <param name="from"></param>
+		/// <returns></returns>
+		public static implicit operator ArrayOfString(string[] from)
+		{
+			var result = new ArrayOfString();
+			result.AddRange(from);
+			return result;
+		}
+	}
+
 	/// <summary>
 	/// The Moderated Record is the abstract base class that includes the properties 
 	/// common to all entities that require moderation and part of the persistent ServD Object Model.
