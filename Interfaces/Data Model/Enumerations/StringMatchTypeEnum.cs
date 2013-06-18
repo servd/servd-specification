@@ -8,7 +8,6 @@ using System.Runtime.Serialization;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// If Fuzzy (4) is selected, the implementation of the search may decide how best to implement this
 	/// </summary>
@@ -19,22 +18,25 @@ namespace ServD.Common
 		/// Any string match should be an exact match
 		/// </summary>
 		[EnumMember]
-		Exact = 0,
+		Exact,
+
 		/// <summary>
 		/// And string match should be considered a wildcard match that contains the entered text
 		/// </summary>
 		[EnumMember]
-		Contains = 1,
+		Contains,
+
 		/// <summary>
 		/// The provided text should be checked to see if it is the start of any entries.<br/>
 		/// <example>"And" would match to "Anderson", "And" but not "Grand"</example>
 		/// </summary>
 		[EnumMember]
-		StartsWith = 2,
+		StartsWith,
+
 		/// <summary>
 		/// Fuzzy Search
 		/// </summary>
 		[EnumMember]
-		Fuzzy = 3
+		Fuzzy
 	};
 }

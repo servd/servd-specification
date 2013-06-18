@@ -11,7 +11,6 @@ using System.Text;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Record Type Enumeration is used by the Maintenance Interface
 	/// for handling batches of information for approval, deletions and update statuses
@@ -27,144 +26,144 @@ namespace ServD.Common
 		/// Organization Record Type
 		/// </summary>
 		[EnumMember]
-		Organization = 1,
+		Organization,
 
 		/// <summary>
 		/// Organization Affiliation Record Type
 		/// </summary>
 		[EnumMember]
-		OrganizationAffiliation = 2,
+		OrganizationAffiliation,
 
 		/// <summary>
 		/// Organization Name Record Type
 		/// </summary>
 		[EnumMember]
-		OrganizationName = 3,
+		OrganizationName,
 
 		/// <summary>
 		/// Provider Record Type
 		/// </summary>
 		[EnumMember]
-		Provider = 10,
+		Provider,
 
 		/// <summary>
 		/// Provider Language Record Type
 		/// </summary>
 		[EnumMember]
-		ProviderLanguage = 11,
+		ProviderLanguage,
 
 		/// <summary>
 		/// Provider Name Record Type
 		/// </summary>
 		[EnumMember]
-		ProviderName = 12,
+		ProviderName,
 
 		/// <summary>
 		/// Service Site Record Type
 		/// </summary>
 		[EnumMember]
-		ServiceSite = 20,
+		ServiceSite,
 
 		/// <summary>
 		/// Service Site Provider Record Type
 		/// </summary>
 		[EnumMember]
-		ServiceSiteProvider = 21,
+		ServiceSiteProvider,
 
 		/// <summary>
 		/// Service Site Setting Record Type
 		/// </summary>
 		[EnumMember]
-		ServiceSiteSetting = 22,
+		ServiceSiteSetting,
 
 		/// <summary>
 		/// Service Site Target Group Record Type
 		/// </summary>
 		[EnumMember]
-		ServiceSiteTargetGroup = 23,
+		ServiceSiteTargetGroup,
 
 		/// <summary>
 		/// Service Type Record Type
 		/// </summary>
 		[EnumMember]
-		ServiceType = 24,
+		ServiceType,
 
 		/// <summary>
 		/// Site Record Type
 		/// </summary>
 		[EnumMember]
-		Site = 30,
+		Site,
 
 		/// <summary>
 		/// Site Geographical Coordinate Record Type
 		/// </summary>
 		[EnumMember]
-		SiteGeographicalCoordinate = 31,
+		SiteGeographicalCoordinate,
 
 		/// <summary>
 		/// Address Record Type
 		/// </summary>
 		[EnumMember]
-		Address = 40,
+		Address,
 
 		/// <summary>
 		/// Attribute Record Type
 		/// </summary>
 		[EnumMember]
-		Attribute = 41,
+		Attribute,
 
 		/// <summary>
 		/// Available Record Type
 		/// </summary>
 		[EnumMember]
-		Available = 42,
+		Available,
 
 		/// <summary>
 		/// Contact Point Record Type
 		/// </summary>
 		[EnumMember]
-		ContactPoint = 43,
+		ContactPoint,
 
 		/// <summary>
 		/// Not Available Record Type
 		/// </summary>
 		[EnumMember]
-		NotAvailable = 44,
+		NotAvailable,
 
 		/// <summary>
 		/// Keyword Record Type
 		/// </summary>
 		[EnumMember]
-		Keyword = 45,
+		Keyword,
 
 		/// <summary>
 		/// Identifier Record Type
 		/// </summary>
 		[EnumMember]
-		Identifier = 46,
+		Identifier,
 
 		/// <summary>
 		/// Catchment Area Record Type
 		/// </summary>
 		[EnumMember]
-		CatchmentArea = 47,
+		CatchmentArea,
 
 		/// <summary>
 		/// Specialty Record Type
 		/// </summary>
 		[EnumMember]
-		Specialty = 48,
+		Specialty,
 
 		/// <summary>
 		/// Referral Method Record Type
 		/// </summary>
 		[EnumMember]
-		ReferralMethod = 49,
+		ReferralMethod,
 
 		/// <summary>
 		/// Coverage Area Record Type
 		/// </summary>
 		[EnumMember]
-		CoverageArea = 50
+		CoverageArea
 	}
 }

@@ -10,7 +10,6 @@ using ServD.Common;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Conditional Indicator is used by the Service Site to indicate the Service Sites Eligibility, 
 	/// or if an Appointment is required
@@ -25,27 +24,27 @@ namespace ServD.Common
 		/// The condition state is not defined 
 		/// </summary>
 		[EnumMember]
-		NotDefined = 0,
+		NotDefined,
 		/// <summary>
 		/// 'Y' The condition is required
 		/// </summary>
 		[EnumMember]
-		Yes = 'Y',
+		Yes,
 		/// <summary>
 		/// 'N' The condition is not required
 		/// </summary>
 		[EnumMember]
-		No ='N',
+		No,
 		/// <summary>
 		/// 'U' The condition state is unknown
 		/// </summary>
 		[EnumMember]
-		Unknown = 'U',
+		Unknown,
 		/// <summary>
 		/// 'C' The condition depends on other factors. Refer to other associated fields
 		/// </summary>
 		[EnumMember]
-		Conditional = 'C'
+		Conditional
 	}
 
 }

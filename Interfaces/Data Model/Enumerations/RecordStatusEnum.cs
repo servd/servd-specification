@@ -13,7 +13,6 @@ using ServD.Parameters;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Record Status Enumeration indicates the state/completeness of the associated record.<br/>
 	/// When an Author updates a record the <b>Maintainable ServD Core</b> will automatically set this
@@ -28,13 +27,13 @@ namespace ServD.Common
 		/// The record is complete and is the current approved content
 		/// </summary>
 		[EnumMember]
-		Complete = 0,
+		Complete,
 
 		/// <summary>
 		/// Only some data was able to be loaded (security or privacy)
 		/// </summary>
 		[EnumMember]
-		Partial = 1,
+		Partial,
 
 		/// <summary>
 		/// This record is complete, however the data requires moderation
@@ -42,7 +41,7 @@ namespace ServD.Common
 		/// this specific record
 		/// </summary>
 		[EnumMember]
-		CompleteAndRequiresModeration = 2,
+		CompleteAndRequiresModeration,
 
 		/// <summary>
 		/// This record is complete, however the data was rejected by the moderator.
@@ -52,7 +51,7 @@ namespace ServD.Common
 		/// this specific record
 		/// </remarks>
 		[EnumMember]
-		CompleteAndModerationRejected = 3,
+		CompleteAndModerationRejected,
 
 		/// <summary>
 		/// The Record Has been deleted
@@ -64,7 +63,7 @@ namespace ServD.Common
 		/// to un-authenticated users.
 		/// </remarks>
 		[EnumMember]
-		Deleted = -1,
+		Deleted,
 
 		/// <summary>
 		/// The Record Has been deleted, however the delete requires moderation
@@ -76,7 +75,7 @@ namespace ServD.Common
 		/// to un-authenticated users.
 		/// </remarks>
 		[EnumMember]
-		DeletedAndRequiresModeration = -2,
+		DeletedAndRequiresModeration,
 
 		/// <summary>
 		/// The Record Has been deleted, however the delete requires moderation
@@ -88,7 +87,7 @@ namespace ServD.Common
 		/// to un-authenticated users.
 		/// </remarks>
 		[EnumMember]
-		DeletedAndModerationRejected = -3,
+		DeletedAndModerationRejected,
 
 		/// <summary>
 		/// This is a special status that is used to indicate to the Maintenance's Update Operations
@@ -97,6 +96,6 @@ namespace ServD.Common
 		/// This will not be returned by any operations, only used as input values.
 		/// </summary>
 		[EnumMember]
-		DoNotUpdate = -4
+		DoNotUpdate
 	}
 }

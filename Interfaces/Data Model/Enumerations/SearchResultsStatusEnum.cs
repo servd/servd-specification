@@ -13,7 +13,6 @@ using ServD.Parameters;
 
 namespace ServD.Common
 {
-	/// <value>REVIEW: MF</value>
 	/// <summary>
 	/// The Search Results Status is used to describe the status Search
 	/// Operations of the ServD Search Interface.<br/>
@@ -27,7 +26,7 @@ namespace ServD.Common
 		/// The Search was successful.
 		/// </summary>
 		[EnumMember]
-		Success = 0,
+		Success,
 
 		/// <summary>
 		/// An error has occurred during the search.<br/>
@@ -35,7 +34,7 @@ namespace ServD.Common
 		/// details of the errors.
 		/// </summary>
 		[EnumMember]
-		Error = 1,
+		Error,
 
 		/// <summary>
 		/// Only some data was able to be loaded.
@@ -48,13 +47,13 @@ namespace ServD.Common
 		/// result for details of the errors.
 		/// </remarks>
 		[EnumMember]
-		Partial = 2,
+		Partial,
 
 		/// <summary>
 		/// The search has returned no data as the search criteria was not
 		/// sufficiently restricted.
 		/// </summary>
 		[EnumMember]
-		ErrorInadequateSearchParameters = 3,
+		ErrorInadequateSearchParameters,
 	}
 }
