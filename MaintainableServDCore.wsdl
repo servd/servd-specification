@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130630" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="MaintainableServDCore" targetNamespace="http://www.omg.org/spec/ServD/20130601" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130601" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130601" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:element name="Search">
 				<xs:complexType>
 					<xs:sequence>
@@ -1679,122 +1679,122 @@
 	</wsdl:message>
 	<wsdl:portType name="Search">
 		<wsdl:operation name="Search">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/Search" message="tns:Search_Search_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/Search" message="tns:Search_Search_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="RetrieveDetails">
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveOrganizationDetails" message="tns:RetrieveDetails_RetrieveOrganizationDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveOrganizationDetailsResponse" message="tns:RetrieveDetails_RetrieveOrganizationDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveSiteDetails" message="tns:RetrieveDetails_RetrieveSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteDetails" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveProviderDetails" message="tns:RetrieveDetails_RetrieveProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveProviderDetails_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrievePublicKeys" message="tns:RetrieveDetails_RetrievePublicKeys_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrievePublicKeysResponse" message="tns:RetrieveDetails_RetrievePublicKeys_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetails" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteProviderDetails" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteProviderDetailsResponse" message="tns:RetrieveDetails_RetrieveServiceSiteProviderDetails_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Maintenance">
 		<wsdl:operation name="OrganizationAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationAdd" message="tns:Maintenance_OrganizationAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationAddResponse" message="tns:Maintenance_OrganizationAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationUpdate" message="tns:Maintenance_OrganizationUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationUpdateResponse" message="tns:Maintenance_OrganizationUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteAdd" message="tns:Maintenance_SiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteAddResponse" message="tns:Maintenance_SiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteUpdate" message="tns:Maintenance_SiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteUpdateResponse" message="tns:Maintenance_SiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteAdd" message="tns:Maintenance_ServiceSiteAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteAddResponse" message="tns:Maintenance_ServiceSiteAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteUpdate" message="tns:Maintenance_ServiceSiteUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteUpdateResponse" message="tns:Maintenance_ServiceSiteUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderAdd" message="tns:Maintenance_ProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderAddResponse" message="tns:Maintenance_ProviderAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderUpdate" message="tns:Maintenance_ProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderUpdateResponse" message="tns:Maintenance_ProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderAdd">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAdd" message="tns:Maintenance_ServiceSiteProviderAdd_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAddResponse" message="tns:Maintenance_ServiceSiteProviderAdd_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderAdd" message="tns:Maintenance_ServiceSiteProviderAdd_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderAddResponse" message="tns:Maintenance_ServiceSiteProviderAdd_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderUpdate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdate" message="tns:Maintenance_ServiceSiteProviderUpdate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdateResponse" message="tns:Maintenance_ServiceSiteProviderUpdate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderUpdate" message="tns:Maintenance_ServiceSiteProviderUpdate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderUpdateResponse" message="tns:Maintenance_ServiceSiteProviderUpdate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadSiteCertificate" message="tns:Maintenance_UploadSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadSiteCertificateResponse" message="tns:Maintenance_UploadSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadServiceSiteCertificate" message="tns:Maintenance_UploadServiceSiteCertificate_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadServiceSiteCertificateResponse" message="tns:Maintenance_UploadServiceSiteCertificate_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/GetRecordsRequiringApproval" message="tns:Maintenance_GetRecordsRequiringApproval_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/GetRecordsRequiringApprovalResponse" message="tns:Maintenance_GetRecordsRequiringApproval_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ApproveRecords" message="tns:Maintenance_ApproveRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/ApproveRecordsResponse" message="tns:Maintenance_ApproveRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/RejectRecords" message="tns:Maintenance_RejectRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/RejectRecordsResponse" message="tns:Maintenance_RejectRecords_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/DeleteRecords" message="tns:Maintenance_DeleteRecords_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Maintenance/DeleteRecordsResponse" message="tns:Maintenance_DeleteRecords_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_Search" type="tns:Search">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Search">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/Search" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/Search" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1803,7 +1803,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizations" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1812,7 +1812,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1821,7 +1821,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1830,7 +1830,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreProviders" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1842,7 +1842,7 @@
 	<wsdl:binding name="BasicHttpBinding_RetrieveDetails" type="tns:RetrieveDetails">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="RetrieveOrganizationDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveOrganizationDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1851,7 +1851,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveSiteDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveSiteDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1860,7 +1860,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1869,7 +1869,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveProviderDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveProviderDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveProviderDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1878,7 +1878,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrievePublicKeys">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrievePublicKeys" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrievePublicKeys" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1887,7 +1887,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RetrieveServiceSiteProviderDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/RetrieveDetails/RetrieveServiceSiteProviderDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/RetrieveDetails/RetrieveServiceSiteProviderDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1899,7 +1899,7 @@
 	<wsdl:binding name="BasicHttpBinding_Maintenance" type="tns:Maintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="OrganizationAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1908,7 +1908,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="OrganizationUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/OrganizationUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/OrganizationUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1917,7 +1917,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1926,7 +1926,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="SiteUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/SiteUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/SiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1935,7 +1935,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1944,7 +1944,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1953,7 +1953,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1962,7 +1962,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ProviderUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ProviderUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1971,7 +1971,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderAdd">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderAdd" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderAdd" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1980,7 +1980,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ServiceSiteProviderUpdate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ServiceSiteProviderUpdate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ServiceSiteProviderUpdate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1989,7 +1989,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadSiteCertificate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1998,7 +1998,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UploadServiceSiteCertificate">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/UploadServiceSiteCertificate" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/UploadServiceSiteCertificate" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2007,7 +2007,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="GetRecordsRequiringApproval">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/GetRecordsRequiringApproval" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/GetRecordsRequiringApproval" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2016,7 +2016,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="ApproveRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/ApproveRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/ApproveRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2025,7 +2025,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="RejectRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/RejectRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/RejectRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -2034,7 +2034,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="DeleteRecords">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Maintenance/DeleteRecords" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Maintenance/DeleteRecords" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

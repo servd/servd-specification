@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions name="ServDLocator" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130630" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="ServDLocator" targetNamespace="http://www.omg.org/spec/ServD/20130601" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.omg.org/spec/ServD/20130601" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<wsdl:types>
-		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130630" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://www.omg.org/spec/ServD/20130601" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 			<xs:element name="LocateSearchEndpointsForCoverageArea">
 				<xs:complexType>
 					<xs:sequence>
@@ -747,54 +747,54 @@
 	</wsdl:message>
 	<wsdl:portType name="Locator">
 		<wsdl:operation name="LocateSearchEndpointsForCoverageArea">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Locator/LocateSearchEndpointsForCoverageArea" message="tns:Locator_LocateSearchEndpointsForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Locator/LocateSearchEndpointsForCoverageAreaResponse" message="tns:Locator_LocateSearchEndpointsForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Locator/LocateSearchEndpointsForCoverageArea" message="tns:Locator_LocateSearchEndpointsForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Locator/LocateSearchEndpointsForCoverageAreaResponse" message="tns:Locator_LocateSearchEndpointsForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="GetReferenceListDetails">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Locator/GetReferenceListDetails" message="tns:Locator_GetReferenceListDetails_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Locator/GetReferenceListDetailsResponse" message="tns:Locator_GetReferenceListDetails_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Locator/GetReferenceListDetails" message="tns:Locator_GetReferenceListDetails_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Locator/GetReferenceListDetailsResponse" message="tns:Locator_GetReferenceListDetails_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="LocatorMaintenance">
 		<wsdl:operation name="RegisterSearchEndpointForCoverageArea">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/RegisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/RegisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_RegisterSearchEndpointForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForAllCoverageAreas">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreasResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreasResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForAllCoverageAreas_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForCoverageArea">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForCoverageAreaResponse" message="tns:LocatorMaintenance_UnregisterSearchEndpointForCoverageArea_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:portType name="Search">
 		<wsdl:operation name="Search">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/Search" message="tns:Search_Search_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/Search" message="tns:Search_Search_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/SearchResponse" message="tns:Search_Search_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizations" message="tns:Search_MoreOrganizations_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizationsResponse" message="tns:Search_MoreOrganizations_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreSites" message="tns:Search_MoreSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreSitesResponse" message="tns:Search_MoreSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSites" message="tns:Search_MoreServiceSites_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSitesResponse" message="tns:Search_MoreServiceSites_OutputMessage"/>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
-			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130630/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
+			<wsdl:input wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreProviders" message="tns:Search_MoreProviders_InputMessage"/>
+			<wsdl:output wsaw:Action="http://www.omg.org/spec/ServD/20130601/Search/MoreProvidersResponse" message="tns:Search_MoreProviders_OutputMessage"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BasicHttpBinding_Locator" type="tns:Locator">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="LocateSearchEndpointsForCoverageArea">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Locator/LocateSearchEndpointsForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Locator/LocateSearchEndpointsForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -803,7 +803,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="GetReferenceListDetails">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Locator/GetReferenceListDetails" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Locator/GetReferenceListDetails" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -815,7 +815,7 @@
 	<wsdl:binding name="BasicHttpBinding_LocatorMaintenance" type="tns:LocatorMaintenance">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="RegisterSearchEndpointForCoverageArea">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/RegisterSearchEndpointForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -824,7 +824,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForAllCoverageAreas">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForAllCoverageAreas" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -833,7 +833,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="UnregisterSearchEndpointForCoverageArea">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/LocatorMaintenance/UnregisterSearchEndpointForCoverageArea" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -845,7 +845,7 @@
 	<wsdl:binding name="BasicHttpBinding_Search" type="tns:Search">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Search">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/Search" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/Search" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -854,7 +854,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreOrganizations">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreOrganizations" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreOrganizations" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -863,7 +863,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -872,7 +872,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreServiceSites">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreServiceSites" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreServiceSites" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -881,7 +881,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="MoreProviders">
-			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130630/Search/MoreProviders" style="document"/>
+			<soap:operation soapAction="http://www.omg.org/spec/ServD/20130601/Search/MoreProviders" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

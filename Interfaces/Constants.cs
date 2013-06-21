@@ -10,7 +10,7 @@ namespace ServD
 {
 	public class Constants
 	{
-		public const string ServDNamespace = "http://www.omg.org/spec/ServD/20130630";
+		public const string ServDNamespace = "http://www.omg.org/spec/ServD/20130601";
 		//	public const string ServDBeta1Namespace = "http://www.omg.org/spec/ServD/20120901";
 	}
 
